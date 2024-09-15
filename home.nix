@@ -111,8 +111,10 @@
 
     shellAliases = {
       ll = "ls -l";
+      cl = "clear";
       update = "sudo nixos-rebuild switch";
     };
+
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
@@ -120,7 +122,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" ];
+      plugins = [ "git" ];
       theme = "robbyrussell";
     };
 
