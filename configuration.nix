@@ -18,6 +18,7 @@
   networking.networkmanager.enable = true;
 
   services.openssh.enable = true; # For github
+  programs.ssh.startAgent = true;
 
   time.timeZone = "America/Los_Angeles";
 
