@@ -10,6 +10,7 @@
     shellAliases = {
       ll = "ls -l";
       cl = "clear";
+      gdl = "git diff HEAD^ HEAD";
       update = "sudo nixos-rebuild switch";
     };
 
