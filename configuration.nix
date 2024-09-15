@@ -76,7 +76,6 @@
     isNormalUser = true;
     description = "Sebastian Lopez Sanchez";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ neovim ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -88,10 +87,10 @@
 
     # apps
     firefox
-    # spotify
 
     # utilities
     wget
+    curl
     xclip
     busybox
     gcc
@@ -117,6 +116,11 @@
     pipewire
   ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "spotify"
+    ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
