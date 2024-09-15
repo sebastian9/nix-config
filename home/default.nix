@@ -4,6 +4,10 @@
   home.username = "seb";
   home.homeDirectory = "/home/seb";
 
+  imports = [
+    ./zsh.nix
+  ];
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
@@ -99,33 +103,6 @@
     extraConfig = ''
       set mouse=a
     '';
-  };
-
-
-  programs.zsh = {
-
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      cl = "clear";
-      update = "sudo nixos-rebuild switch";
-    };
-
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "robbyrussell";
-    };
-
   };
 
   # This value determines the home Manager release that your
