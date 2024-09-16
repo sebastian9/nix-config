@@ -88,6 +88,8 @@
 
     # apps
     firefox
+    spotify
+    vagrant
 
     # utilities
     wget
@@ -117,14 +119,10 @@
     pipewire
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      # Add additional package names here
-      "spotify"
-    ];
+  nixpkgs.config.allowUnfree = true;
 
-   virtualisation.virtualbox.host.enable = true;
-   users.extraGroups.vboxusers.members = [ "seb" ];
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "seb" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
