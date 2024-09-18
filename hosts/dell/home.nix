@@ -8,9 +8,9 @@
     ./packages.nix # standalone packages
 
     # software configs
-    ./zsh.nix
-    ./git.nix
-    ./vim.nix
+    ../../home/zsh.nix
+    ../../home/git.nix
+    ../../home/vim.nix
   ];
 
   # This value determines the home Manager release that your
