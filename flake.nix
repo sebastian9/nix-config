@@ -9,12 +9,15 @@
     lollypops.url = "github:pinpox/lollypops";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, lollypops, ... }: {
+
     nixosConfigurations = {
+
       dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/dell
+          lollypops.nixosModules.lollypops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -24,6 +27,25 @@
           }
         ];
       };
+
+      nuc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nuc
+          lollypops.nixosModules.lollypops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nuc = import ./hosts/nuc/home.nix;
+            home-manager.backupFileExtension = "backup";
+          }
+        ];
+      };
+
     };
+
+    apps."x86_64-linux".default = lollypops.apps."x86_64-linux".default { configFlake = self; };
+
   };
 }
