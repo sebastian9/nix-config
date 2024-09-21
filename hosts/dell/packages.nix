@@ -38,6 +38,9 @@
     zstd # Zstandard real-time compression algorithm
     gnupg # GNU Privacy Guard
 
+    # apps
+    spotify
+
     # nix related
     #
     # it provides the command `nom` works just like `nix`

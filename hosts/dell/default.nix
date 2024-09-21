@@ -90,7 +90,6 @@
 
     # apps
     firefox
-    spotify
     vagrant
 
     # utilities
