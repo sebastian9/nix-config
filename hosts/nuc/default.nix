@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./deployment.nix
+      ./nas.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -20,7 +21,14 @@
   networking.hostName = "nuc"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
+  users.users."nuc".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSDMWTX3nZyps9CfmKZV29WW9Dvwms8GXjkACiCT/jc seb@dell"
+  ];
   programs.ssh.startAgent = true;
 
   time.timeZone = "America/Los_Angeles";

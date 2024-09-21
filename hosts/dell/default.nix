@@ -18,6 +18,8 @@
   networking.networkmanager.enable = true;
 
   services.openssh.enable = true; # For github
+  services.openssh.settings.PasswordAuthentication = false;
+  services.openssh.settings.KbdInteractiveAuthentication = false;
   programs.ssh.startAgent = true;
 
   time.timeZone = "America/Los_Angeles";
