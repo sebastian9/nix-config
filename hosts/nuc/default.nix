@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./deployment.nix
       ./nas.nix
+      ../../common/garbage_collection.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -47,14 +48,6 @@
   };
 
   environment.variables.EDITOR = "vim";
-
-  # Garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 15d";
-  };
-  nix.optimise.automatic = true;
 
   fonts.packages = with pkgs; [
     nerdfonts

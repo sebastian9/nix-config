@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common/garbage_collection.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,14 +43,6 @@
   environment.variables.EDITOR = "vim";
   environment.variables.XCURSOR_SIZE = 32;
   environment.variables.CONFIG_DIR = "/home/seb/nixos-config/";
-
-  # Garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 15d";
-  };
-  nix.optimise.automatic = true;
 
   sound.enable = true;
   security.rtkit.enable = true;
