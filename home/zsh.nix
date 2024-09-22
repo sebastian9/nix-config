@@ -14,7 +14,10 @@
       editc = "cd \"$CONFIG_DIR\" && vim -c :Files .";
       cdc = "cd $CONFIG_DIR";
       update = ''
-        sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell"
+        cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" && cd -
+      '';
+      update-no-cache = ''
+        cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" --no-eval-cache && cd -
       '';
       deploy = ''
         nix run "$CONFIG_DIR" -- nuc

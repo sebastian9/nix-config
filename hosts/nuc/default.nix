@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./deployment.nix
       ./nas.nix
+      ../../common/base.nix
       ../../common/garbage_collection.nix
       ../../common/fonts.nix
     ];
@@ -32,21 +33,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSDMWTX3nZyps9CfmKZV29WW9Dvwms8GXjkACiCT/jc seb@dell"
   ];
   programs.ssh.startAgent = true;
-
-  time.timeZone = "America/Los_Angeles";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   environment.variables.EDITOR = "vim";
 
