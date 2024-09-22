@@ -48,6 +48,14 @@
 
   environment.variables.EDITOR = "vim";
 
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
+  nix.optimise.automatic = true;
+
   fonts.packages = with pkgs; [
     nerdfonts
     meslo-lgs-nf
