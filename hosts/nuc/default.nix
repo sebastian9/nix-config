@@ -6,58 +6,15 @@
       ./hardware-configuration.nix
       ./deployment.nix
       ./nas.nix
+      ./users.nix
+      ./ssh.nix
       ../../common/base.nix
-      ../../common/garbage_collection.nix
+      ../../common/system_packages.nix
       ../../common/fonts.nix
+      ../../common/garbage_collection.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  security.sudo.wheelNeedsPassword = false;
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "nuc"; # Define your hostname.
-  networking.networkmanager.enable = true;
-
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-  };
-  users.users."nuc".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSDMWTX3nZyps9CfmKZV29WW9Dvwms8GXjkACiCT/jc seb@dell"
-  ];
-  programs.ssh.startAgent = true;
-
-  environment.variables.EDITOR = "vim";
-
-  users.users.nuc = {
-    isNormalUser = true;
-    description = "Sebastian Lopez Sanchez";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    kitty
-    git
-
-    # utilities
-    wget
-    curl
-    xclip
-    busybox
-    gcc
-  ];
-
-  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

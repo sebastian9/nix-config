@@ -5,29 +5,22 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../common/base.nix
-      ../../common/garbage_collection.nix
+      ../../common/system_packages.nix
       ../../common/fonts.nix
+      ../../common/garbage_collection.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  networking.hostName = "dell";
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "dell"; # Define your hostname.
-  networking.networkmanager.enable = true;
-
-  services.openssh.enable = true; # For github
-  services.openssh.settings.PasswordAuthentication = false;
-  services.openssh.settings.KbdInteractiveAuthentication = false;
+  services.openssh = {
+    enable = true; # For github
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
   programs.ssh.startAgent = true;
 
   services.libinput.touchpad.naturalScrolling = true;
 
-  environment.variables.EDITOR = "vim";
   environment.variables.XCURSOR_SIZE = 32;
   environment.variables.CONFIG_DIR = "/home/seb/nixos-config/";
 
@@ -65,26 +58,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Passwordless sudo
-  security.sudo.wheelNeedsPassword = false;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    kitty
-    git
-
     # apps
     firefox
     vagrant
 
     # utilities
-    wget
-    curl
-    xclip
-    busybox
-    gcc
     networkmanagerapplet # GUI
     brightnessctl # display control
 
@@ -106,8 +87,6 @@
     pavucontrol #GUI
     pipewire
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "seb" ];
