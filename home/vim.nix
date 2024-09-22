@@ -16,10 +16,11 @@
     extraConfig = ''
       set mouse=a
       let mapleader=" "
-      map <leader>pf :Files<CR>
-      map <leader>bb :Buffers<CR>
-      map <leader>s :Rg<CR>
-      map <leader><Tab> :b#
+      map <leader>f :Files<CR>
+      map <leader>b :Buffers<CR>
+      map <leader>/ :Rg<CR>
+      map <leader><Tab> :b#<CR>
+      map <leader>p :r !wl-paste<CR>
     '';
   };
 }
