@@ -14,6 +14,7 @@
     ../../home/git.nix
     ../../home/vim.nix
     ../../home/vscode.nix
+    ../../home/kitty.nix
   ];
 
   # This value determines the home Manager release that your
