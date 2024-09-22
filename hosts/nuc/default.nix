@@ -7,6 +7,7 @@
       ./deployment.nix
       ./nas.nix
       ../../common/garbage_collection.nix
+      ../../common/fonts.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -48,11 +49,6 @@
   };
 
   environment.variables.EDITOR = "vim";
-
-  fonts.packages = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-  ];
 
   users.users.nuc = {
     isNormalUser = true;

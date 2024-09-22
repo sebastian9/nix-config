@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../common/garbage_collection.nix
+      ../../common/fonts.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -71,11 +72,6 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-  fonts.packages = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-  ];
 
   users.users.seb = {
     isNormalUser = true;
