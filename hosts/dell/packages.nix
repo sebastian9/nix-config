@@ -1,12 +1,9 @@
 # Packages that should be installed to the user profile.
 { config, pkgs,  ... }:
 let
-  unstable_packages = [];
-  #unstable_packages = with nixpkgs-unstable; [
-    #spotify
-  #];
-in
-{
+  unstable_packages = with pkgs.unstable; [
+  ];
+in {
   home.packages = with pkgs; [
     neofetch # fancy system info
     nnn # terminal file manager

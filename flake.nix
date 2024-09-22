@@ -10,8 +10,20 @@
   };
 
   outputs = inputs@{
-    self, nixpkgs, home-manager, lollypops, ...
-  }: {
+    self, nixpkgs, nixpkgs-unstable, home-manager, lollypops, ...
+  }:
+
+  let
+
+    system = "x86_64-linux";
+    overlay-unstable = final: prev: {
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    };
+
+  in {
 
     nixosConfigurations = {
 
@@ -19,6 +31,8 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/dell
+          # Overlays-module makes "pkgs.unstable" available
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           lollypops.nixosModules.lollypops
           home-manager.nixosModules.home-manager
           {
@@ -35,6 +49,8 @@
         modules = [
           ./hosts/nuc
           lollypops.nixosModules.lollypops
+          # Overlays-module makes "pkgs.unstable" available
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
