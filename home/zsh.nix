@@ -11,7 +11,14 @@
       ll = "ls -l";
       cl = "clear";
       gdl = "git diff HEAD^ HEAD";
-      update = "sudo nixos-rebuild switch";
+      editc = "cd \"$CONFIG_DIR\" && vim -c :Files .";
+      cdc = "cd $CONFIG_DIR";
+      update = ''
+        sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell"
+      '';
+      deploy = ''
+        nix run "$CONFIG_DIR" -- nuc
+      '';
     };
 
     history = {

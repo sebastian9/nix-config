@@ -46,7 +46,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  environment.variables.EDITOR = "kitty"; # Make kitty default terminal emulator
+  environment.variables.EDITOR = "vim";
 
   fonts.packages = with pkgs; [
     nerdfonts

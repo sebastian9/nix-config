@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs,  ... }:
 
 {
   home.username = "seb";
   home.homeDirectory = "/home/seb";
+
+  programs.kitty.enable = true; # required for the default Hyprland config
 
   imports = [
     ./packages.nix # standalone packages
@@ -11,6 +13,7 @@
     ../../home/zsh.nix
     ../../home/git.nix
     ../../home/vim.nix
+    ../../home/vscode.nix
   ];
 
   # This value determines the home Manager release that your

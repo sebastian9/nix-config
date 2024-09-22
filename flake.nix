@@ -9,7 +9,9 @@
     lollypops.url = "github:pinpox/lollypops";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, lollypops, ... }: {
+  outputs = inputs@{
+    self, nixpkgs, home-manager, lollypops, ...
+  }: {
 
     nixosConfigurations = {
 

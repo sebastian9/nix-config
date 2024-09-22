@@ -1,22 +1,24 @@
-{ config, pkgs, ... }:
+# Packages that should be installed to the user profile.
+{ config, pkgs,  ... }:
+let
+  unstable_packages = [];
+  #unstable_packages = with nixpkgs-unstable; [
+    #spotify
+  #];
+in
 {
-  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-
     neofetch # fancy system info
     nnn # terminal file manager
 
     p7zip # archives
-
-    neovim
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     yq-go # yaml processor https://github.com/mikefarah/yq
     fzf # A command-line fuzzy finder
+    zoxide # cd but better
 
     # networking tools
     mtr # A network diagnostic tool
@@ -39,7 +41,8 @@
     gnupg # GNU Privacy Guard
 
     # apps
-    spotify
+    neovim
+    vscode.fhs
 
     # nix related
     #
@@ -67,5 +70,5 @@
     usbutils # lsusb
 
     python3
-  ];
+  ] ++ unstable_packages;
 }

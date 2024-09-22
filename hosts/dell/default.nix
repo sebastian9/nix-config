@@ -39,8 +39,9 @@
 
   services.libinput.touchpad.naturalScrolling = true;
 
-  environment.variables.EDITOR = "kitty"; # Make kitty default terminal emulator
+  environment.variables.EDITOR = "vim";
   environment.variables.XCURSOR_SIZE = 32;
+  environment.variables.CONFIG_DIR = "/home/seb/nixos-config/";
 
   sound.enable = true;
   security.rtkit.enable = true;
