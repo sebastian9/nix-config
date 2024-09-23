@@ -39,6 +39,7 @@ in {
     # apps
     neovim
     dolphin # KDE GUI file manager
+    photoqt # Image viewer
     vscode.fhs
 
     nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output

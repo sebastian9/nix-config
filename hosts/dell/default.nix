@@ -8,6 +8,7 @@
       ../../common/system_packages.nix
       ../../common/fonts.nix
       ../../common/garbage_collection.nix
+      ../../common/nas.nix
     ];
 
   networking.hostName = "dell";
