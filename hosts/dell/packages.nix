@@ -39,13 +39,10 @@ in {
 
     # apps
     neovim
+    dolphin # KDE GUI file manager
     vscode.fhs
 
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
+    nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output
 
     # productivity
     glow # markdown previewer in terminal
