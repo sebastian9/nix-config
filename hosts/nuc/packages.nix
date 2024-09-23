@@ -6,7 +6,6 @@
     # feel free to add your own or remove some of them
 
     neofetch # fancy system info
-    nnn # terminal file manager
 
     p7zip # archives
 

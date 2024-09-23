@@ -5,6 +5,7 @@
     kitty
     git
     fzf
+    nnn # terminal file manager
 
     # utilities
     wget

@@ -6,7 +6,6 @@ let
 in {
   home.packages = with pkgs; [
     neofetch # fancy system info
-    nnn # terminal file manager
 
     p7zip # archives
 
