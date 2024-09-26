@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ./deployment.nix
       ./users.nix
-      ./ssh.nix
+      ./services/ssh.nix
       ../../common/base.nix
       ../../common/system_packages.nix
       ../../common/fonts.nix
