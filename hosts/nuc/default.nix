@@ -1,18 +1,17 @@
 { lib, config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./deployment.nix
-      ./users.nix
-      ./services/ssh.nix
-      ../../common/base.nix
-      ../../common/system_packages.nix
-      ../../common/fonts.nix
-      ../../common/garbage_collection.nix
-      ../../common/nas.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./deployment.nix
+    ./users.nix
+    ./services
+    ../../common/base.nix
+    ../../common/system_packages.nix
+    ../../common/fonts.nix
+    ../../common/garbage_collection.nix
+    ../../common/nas.nix
+  ];
 
   networking.hostName = "nuc"; # Define your hostname.
 

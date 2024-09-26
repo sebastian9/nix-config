@@ -11,6 +11,7 @@
 
     # misc
     which
+    nmap
     tree
     gnused
     gnutar
@@ -24,5 +25,6 @@
     nix-output-monitor
 
     python3
+    mariadb
   ];
 }
