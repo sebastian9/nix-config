@@ -26,5 +26,6 @@
 
     python3
     mariadb
+    nextcloud29
   ];
 }
