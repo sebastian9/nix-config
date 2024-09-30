@@ -20,7 +20,11 @@
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" --no-eval-cache && cd -
       '';
       deploy = ''
-        nix run "$CONFIG_DIR" -- nuc
+        nix run "$CONFIG_DIR" -- -p nuc zima
+      '';
+      backup = ''
+        sudo mount /dev/sda /mnt/usb &&
+        sudo rsync -av --i-r --progress --no-owner --no-group /mnt/synology/ /mnt/usb/backup
       '';
     };
 
