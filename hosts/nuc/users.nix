@@ -2,6 +2,6 @@
   users.users.nuc = {
     isNormalUser = true;
     description = "default user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 }
