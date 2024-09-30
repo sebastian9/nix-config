@@ -2,8 +2,11 @@
 
 {
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/nvme0n1";
+    useOSProber = true;
+  };
 
   imports = [
     ./hardware-configuration.nix
@@ -14,10 +17,9 @@
     ../../common/system_packages.nix
     ../../common/fonts.nix
     ../../common/garbage_collection.nix
-    ../../common/nas.nix
   ];
 
-  networking.hostName = "nuc"; # Define your hostname.
+  networking.hostName = "zima"; # Define your hostname.
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

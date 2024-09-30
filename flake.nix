@@ -61,6 +61,23 @@
         ];
       };
 
+      zima = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/zima
+          lollypops.nixosModules.lollypops
+          # Overlays-module makes "pkgs.unstable" available
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.zima = import ./hosts/zima/home.nix;
+            home-manager.backupFileExtension = "backup";
+          }
+        ];
+      };
+
     };
 
     apps."x86_64-linux".default = lollypops.apps."x86_64-linux".default { configFlake = self; };
