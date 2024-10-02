@@ -1,8 +1,8 @@
-{ config, pkgs,  ... }:
+{ config, pkgs, user, ... }:
 
 {
-  home.username = "seb";
-  home.homeDirectory = "/home/seb";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   programs.kitty.enable = true; # required for the default Hyprland config
 

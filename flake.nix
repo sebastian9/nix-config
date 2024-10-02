@@ -23,6 +23,18 @@
 
     system = "x86_64-linux";
 
+    hostnames = {
+      dell = "dell";
+      nuc = "nuc";
+      zima = "zima";
+    };
+
+    usernames = {
+      dell = "seb";
+      nuc = "nuc";
+      zima = "zima";
+    };
+
     overlay-unstable = final: prev: {
       unstable = import nixpkgs-unstable {
         inherit system;
@@ -35,44 +47,33 @@
       home-manager.useUserPackages = true;
       home-manager.users.${user} = import ./hosts/${host}/home.nix;
       home-manager.backupFileExtension = "backup";
+      home-manager.extraSpecialArgs = {
+        user = user;
+      };
+    };
+
+    mkConfig = name: nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        user = usernames.${name};
+        host = hostnames.${name};
+      };
+      modules = [
+        ./hosts/${name}
+        { nixpkgs.overlays = [ overlay-unstable ]; }
+        lollypops.nixosModules.lollypops
+        home-manager.nixosModules.home-manager
+        (home-manager-defaults usernames.${name} hostnames.${name})
+      ];
     };
 
   in {
 
     nixosConfigurations = {
 
-      dell = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/dell
-          { nixpkgs.overlays = [ overlay-unstable ]; }
-          lollypops.nixosModules.lollypops
-          home-manager.nixosModules.home-manager
-          (home-manager-defaults "seb" "dell")
-        ];
-      };
-
-      nuc = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nuc
-          lollypops.nixosModules.lollypops
-          { nixpkgs.overlays = [ overlay-unstable ]; }
-          home-manager.nixosModules.home-manager
-          (home-manager-defaults "nuc" "nuc")
-        ];
-      };
-
-      zima = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/zima
-          lollypops.nixosModules.lollypops
-          { nixpkgs.overlays = [ overlay-unstable ]; }
-          home-manager.nixosModules.home-manager
-          (home-manager-defaults "zima" "zima")
-        ];
-      };
+      dell = mkConfig "dell";
+      nuc = mkConfig "nuc";
+      zima = mkConfig "zima";
 
     };
 
