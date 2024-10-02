@@ -1,5 +1,7 @@
+{ user, ... }:
+
 {
-  users.users.nuc = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "default user";
     extraGroups = [ "networkmanager" "wheel" "docker" ];

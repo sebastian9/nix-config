@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -23,6 +23,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  networking.hostName = host;
   networking.networkmanager.enable = true;
-
 }

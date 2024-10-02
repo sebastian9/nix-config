@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, user, ... }:
 
 {
 
@@ -15,8 +15,6 @@
       ../../common/nas.nix
     ];
 
-  networking.hostName = "dell";
-
   services.openssh = {
     enable = true; # For github
     settings.PasswordAuthentication = false;
@@ -27,7 +25,7 @@
   services.libinput.touchpad.naturalScrolling = true;
 
   environment.variables.XCURSOR_SIZE = 32;
-  environment.variables.CONFIG_DIR = "/home/seb/nixos-config/";
+  environment.variables.CONFIG_DIR = "/home/${user}/nixos-config/";
 
   sound.enable = true;
   security.rtkit.enable = true;
@@ -47,19 +45,9 @@
   # Hint Electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Screen sharing
-  services.dbus.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  users.users.seb = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "Sebastian Lopez Sanchez";
+    description = "Main user";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
@@ -94,7 +82,7 @@
   ];
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "seb" ];
+  users.extraGroups.vboxusers.members = [ user ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
