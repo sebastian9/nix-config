@@ -26,6 +26,12 @@
         config.allowUnfree = true;
       };
     };
+    home-manager-defaults = user: host: {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.${user} = import ./hosts/${host}/home.nix;
+      home-manager.backupFileExtension = "backup";
+    };
 
   in {
 
@@ -39,12 +45,7 @@
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           lollypops.nixosModules.lollypops
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.seb = import ./hosts/dell/home.nix;
-            home-manager.backupFileExtension = "backup";
-          }
+          (home-manager-defaults "seb" "dell")
         ];
       };
 
@@ -56,12 +57,7 @@
           # Overlays-module makes "pkgs.unstable" available
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nuc = import ./hosts/nuc/home.nix;
-            home-manager.backupFileExtension = "backup";
-          }
+          (home-manager-defaults "nuc" "nuc")
         ];
       };
 
@@ -73,18 +69,13 @@
           # Overlays-module makes "pkgs.unstable" available
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.zima = import ./hosts/zima/home.nix;
-            home-manager.backupFileExtension = "backup";
-          }
+          (home-manager-defaults "zima" "zima")
         ];
       };
 
     };
 
-    apps."x86_64-linux".default = lollypops.apps."x86_64-linux".default { configFlake = self; };
+    apps.${system}.default = lollypops.apps.${system}.default { configFlake = self; };
 
   };
 }
