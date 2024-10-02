@@ -6,7 +6,11 @@
       vim-airline
       fzf-vim
       zoxide-vim
+      nerdtree
+      vim-lastplace
       vim-nix
+      vim-addon-nix
+      YouCompleteMe
     ];
     settings = {
       ignorecase = true;
@@ -21,6 +25,7 @@
       map <leader>/ :Rg<CR>
       map <leader><Tab> :b#<CR>
       map <leader>p :r !wl-paste<CR>
+      map <leader>n :NERDTreeToggle<CR>
     '';
   };
 }
