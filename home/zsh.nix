@@ -20,7 +20,7 @@
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" --no-eval-cache && cd -
       '';
       deploy = ''
-        nix run "$CONFIG_DIR" -- -p nuc zima
+        nix run "$CONFIG_DIR" -- -p zima nuc
       '';
       backup = ''
         sudo mount /dev/sda /mnt/usb &&

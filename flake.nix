@@ -32,7 +32,7 @@
     nixosConfigurations = {
 
       dell = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./hosts/dell
           # Overlays-module makes "pkgs.unstable" available
@@ -49,7 +49,7 @@
       };
 
       nuc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./hosts/nuc
           lollypops.nixosModules.lollypops
@@ -66,7 +66,7 @@
       };
 
       zima = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./hosts/zima
           lollypops.nixosModules.lollypops
