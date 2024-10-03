@@ -17,6 +17,7 @@
     ../../common/system_packages.nix
     ../../common/fonts.nix
     ../../common/garbage_collection.nix
+    ../../common/owntracks.nix
   ];
 
   # This value determines the NixOS release from which the default
