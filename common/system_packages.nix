@@ -5,6 +5,7 @@
     kitty
     git
     fzf
+    lf
     nnn # terminal file manager
 
     # utilities
