@@ -3,7 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixos-24.05-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
     lollypops.url = "github:pinpox/lollypops";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -16,28 +21,35 @@
   };
 
   outputs = inputs@{
-    self, nixpkgs, nixpkgs-unstable, home-manager, lollypops, ...
+    self, nixpkgs, nixpkgs-darwin, nix-darwin, nixpkgs-unstable, home-manager, lollypops, ...
   }:
 
   let
-
-    system = "x86_64-linux";
 
     hostnames = {
       dell = "dell";
       nuc = "nuc";
       zima = "zima";
+      work_mac = "LUSHQF0X7F3GW";
     };
 
     usernames = {
       dell = "seb";
       nuc = "nuc";
       zima = "zima";
+      work_mac = "slopezsanchez";
     };
 
-    overlay-unstable = final: prev: {
+    systems = {
+      dell = "x86_64-linux";
+      nuc = "x86_64-linux";
+      zima = "aarch64-linux";
+      work_mac = "aarch64-darwin";
+    }
+
+    overlay-unstable = system: final: prev: {
       unstable = import nixpkgs-unstable {
-        inherit system;
+        system = ${system};
         config.allowUnfree = true;
       };
     };
@@ -53,17 +65,31 @@
     };
 
     mkConfig = name: nixpkgs.lib.nixosSystem {
-      inherit system;
+      system = systems.${name};
       specialArgs = {
         user = usernames.${name};
         host = hostnames.${name};
       };
       modules = [
         ./hosts/${name}
-        { nixpkgs.overlays = [ overlay-unstable ]; }
+        { nixpkgs.overlays = [ (overlay-unstable systems.${name}) ]; }
         lollypops.nixosModules.lollypops
         home-manager.nixosModules.home-manager
         (home-manager-defaults usernames.${name} hostnames.${name})
+      ];
+    };
+
+    mkConfigDarwin = name: nixpkgs.lib.nixosSystem {
+      system = systems.${name};
+      specialArgs = {
+        user = usernames.${name};
+        host = hostnames.${name};
+      };
+      modules = [
+        ./hosts/${name}
+        lollypops.nixosModules.lollypops
+        home-manager.nixosModules.home-manager
+        # (home-manager-defaults usernames.${name} hostnames.${name})
       ];
     };
 
