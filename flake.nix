@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixos-24.05-darwin";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -43,13 +43,15 @@
     systems = {
       dell = "x86_64-linux";
       nuc = "x86_64-linux";
-      zima = "aarch64-linux";
+      zima = "x86_64-linux";
       work_mac = "aarch64-darwin";
-    }
+    };
+
+    supportedSystems = nixpkgs.lib.lists.unique (builtins.attrValues systems);
 
     overlay-unstable = system: final: prev: {
       unstable = import nixpkgs-unstable {
-        system = ${system};
+        system = system;
         config.allowUnfree = true;
       };
     };
@@ -103,7 +105,9 @@
 
     };
 
-    apps.${system}.default = lollypops.apps.${system}.default { configFlake = self; };
 
+    apps = nixpkgs.lib.genAttrs supportedSystems (system: {
+      default = lollypops.apps.${system}.default { configFlake = self; };
+    });
   };
 }
