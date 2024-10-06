@@ -8,6 +8,7 @@
     neofetch # fancy system info
 
     p7zip # archives
+    exiftool # metadata edit tool - can index images and videos
 
     # misc
     which
