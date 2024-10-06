@@ -26,7 +26,5 @@
     nix-output-monitor
 
     python3
-    mariadb
-    nextcloud29
   ];
 }

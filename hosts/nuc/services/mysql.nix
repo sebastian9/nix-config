@@ -1,24 +1,35 @@
 { pkgs, ... }:
 
 {
+
+  environment.systemPackages = [ pkgs.mariadb ];
+
   services = {
     mysql = {
       enable = true;
       package = pkgs.mariadb;
       ensureDatabases = [
         "nextcloud"
+        "photoprism"
       ];
       ensureUsers = [
         {
           name = "nuc";
           ensurePermissions = {
             "nextcloud.*" = "SELECT";
+            "photoprism.*" = "SELECT";
           };
         }
         {
           name = "nextcloud";
           ensurePermissions = {
             "nextcloud.*" = "ALL PRIVILEGES";
+          };
+        }
+        {
+          name = "photoprism";
+          ensurePermissions = {
+            "photoprism.*" = "ALL PRIVILEGES";
           };
         }
         {
@@ -33,6 +44,7 @@
       enable = true;
       databases = [
         "nextcloud"
+        "photoprism"
       ];
     };
   };

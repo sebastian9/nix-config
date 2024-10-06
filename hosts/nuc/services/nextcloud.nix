@@ -2,6 +2,7 @@
 
 {
 
+  environment.systemPackages = [ pkgs.nextcloud29 ];
   environment.etc."nextcloud-admin-pass".text = "test_phrase";
 
   services.nextcloud = {
