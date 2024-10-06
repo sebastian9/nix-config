@@ -28,7 +28,7 @@
       dell = "dell";
       nuc = "nuc";
       zima = "zima";
-      workMac = "LUSHQF0X7F3GW";
+      # workMac = "LUSHQF0X7F3GW";
     };
 
     hostAliases = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames);
