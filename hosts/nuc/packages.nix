@@ -18,6 +18,7 @@
     gnutar
     gawk
     gnupg # GNU Privacy Guard
+    btop
 
     # nix related
     #
