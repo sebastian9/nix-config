@@ -7,5 +7,6 @@
     ./nextcloud.nix
     ./nginx.nix
     ./photoprism.nix
+    ./dawarich
   ];
 }
