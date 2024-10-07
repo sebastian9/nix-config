@@ -18,6 +18,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    compose2nix = {
+      url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -69,6 +73,8 @@
     mkConfig = name: inputs.nixpkgs.lib.nixosSystem {
       system = systems.${name};
       specialArgs = {
+        inherit inputs;
+        system = systems.${name};
         user = userNames.${name};
         host = hostNames.${name};
       };

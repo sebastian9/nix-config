@@ -9,6 +9,7 @@
     enable = true;
     package = pkgs.nextcloud29;
     hostName = "nuc.home";
+    configureRedis = true;
     config = {
       dbtype = "mysql";
       dbhost = "localhost:3306";

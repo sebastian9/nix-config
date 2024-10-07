@@ -13,6 +13,7 @@
       ../../common/fonts.nix
       ../../common/garbage_collection.nix
       ../../common/nas.nix
+      ../../common/docker.nix
     ];
 
   services.openssh = {

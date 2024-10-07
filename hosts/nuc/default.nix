@@ -15,6 +15,7 @@
     ../../common/fonts.nix
     ../../common/garbage_collection.nix
     ../../common/nas.nix
+    ../../common/docker.nix
   ];
 
   # This value determines the NixOS release from which the default
