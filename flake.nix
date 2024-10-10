@@ -7,7 +7,7 @@
     lollypops.url = "github:pinpox/lollypops";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -35,7 +35,7 @@
 
     hostAliases = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames);
 
-    hostNames-darwin {
+    hostNames-darwin = {
       workMac =  "LUSHQF0X7F3GW";
     };
 
@@ -91,7 +91,7 @@
       ];
     };
 
-    mkConfig-dariwn = name: nix-darwin.lib.darwinSystem {
+    mkConfig-darwin = name: inputs.nix-darwin.lib.darwinSystem {
       specialArgs = {
         inherit inputs;
         system = systems.${name};
@@ -102,7 +102,7 @@
         ./hosts/${name}
         { nixpkgs.overlays = [ (overlay-unstable systems.${name}) ]; }
         inputs.home-manager.darwinModules.home-manager
-        (home-manager-defaults userNames.${name} hostNames.${name})
+        (home-manager-defaults userNames.${name} name)
       ];
     };
 
@@ -119,7 +119,7 @@
     );
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."${hostNames-darwin.workMac}".pkgs;
+    darwinPackages = inputs.self.darwinConfigurations."workMac".pkgs;
 
     # lollypops devops for remote deployment
     apps = inputs.nixpkgs.lib.genAttrs supportedSystems (system:

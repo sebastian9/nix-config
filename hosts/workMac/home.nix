@@ -2,7 +2,6 @@
 
 {
   home.username = user;
-  home.homeDirectory = "/home/${user}";
 
   imports = [
     ./packages.nix # standalone packages
