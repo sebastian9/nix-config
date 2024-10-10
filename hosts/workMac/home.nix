@@ -1,7 +1,6 @@
 { config, pkgs, user, ... }:
 
 {
-  home.username = user;
 
   imports = [
     ./packages.nix # standalone packages

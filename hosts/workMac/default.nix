@@ -36,6 +36,7 @@
       ../../common/fonts.nix
     ];
 
-  environment.variables.CONFIG_DIR = "/home/${user}/.config/nixos-config/";
+  environment.variables.CONFIG_DIR = "/Users/${user}/.config/nixos-config/";
+  environment.variables.EDITOR = "vim";
 
 }
