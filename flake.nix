@@ -31,10 +31,15 @@
       dell = "dell";
       nuc = "nuc";
       zima = "zima";
-      # workMac = "LUSHQF0X7F3GW";
     };
 
     hostAliases = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames);
+
+    hostNames-darwin {
+      workMac =  "LUSHQF0X7F3GW";
+    };
+
+    hostAliases-darwin = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames-darwin);
 
     userNames = {
       dell = "seb";
@@ -86,38 +91,21 @@
       ];
     };
 
-
-    nix_darwin_config = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs;
-        [
-          vim
-          fzf
-          zoxide
-        ];
-
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+    mkConfig-dariwn = name: nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit inputs;
+        system = systems.${name};
+        user = userNames.${name};
+        host = hostNames.${name};
+      };
+      modules = [
+        ./hosts/${name}
+        { nixpkgs.overlays = [ (overlay-unstable systems.${name}) ]; }
+        inputs.home-manager.darwinModules.home-manager
+        (home-manager-defaults userNames.${name} hostNames.${name})
+      ];
     };
+
 
   in {
 
@@ -125,14 +113,13 @@
       mkConfig "${host}"
     );
 
-    # Build darwin flake using:
     # $ darwin-rebuild build --flake .#LUSHQF0X7F3GW
-    darwinConfigurations."LUSHQF0X7F3GW" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
-    };
+    darwinConfigurations = inputs.nixpkgs.lib.genAttrs hostAliases-darwin (host:
+      mkConfig-darwin "${host}"
+    );
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."LUSHQF0X7F3GW".pkgs;
+    darwinPackages = self.darwinConfigurations."${hostNames-darwin.workMac}".pkgs;
 
     # lollypops devops for remote deployment
     apps = inputs.nixpkgs.lib.genAttrs supportedSystems (system:
