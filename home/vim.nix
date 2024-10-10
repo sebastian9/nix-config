@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    fzf
+    fd
+  ];
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
@@ -20,6 +24,7 @@
     extraConfig = ''
       set mouse=a
       let mapleader=" "
+      let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git --exclude node_modules'
       map <leader>f :Files<CR>
       map <leader>b :Buffers<CR>
       map <leader>/ :Rg<CR>
