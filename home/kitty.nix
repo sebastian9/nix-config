@@ -1,7 +1,8 @@
+{lib, ...}:
 {
   programs.kitty = {
     enable = true;
-    font.size = 16;
+    font.size = lib.mkDefault 16;
     font.name = "DejaVu Sans";
   };
 }

@@ -12,6 +12,27 @@
     ../../home/kitty.nix
   ];
 
+  home.sessionPath = [
+    "$HOME/.pyenv/bin"
+    "$HOME/.nvm"
+    "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    "opt/homebrew/opt/openjdk/bin"
+    "/Users/slopezsanchez/.local/bin"
+  ];
+
+  # Extra shell aliases for this machine/darwin
+  programs.zsh = {
+    shellAliases = {
+      firefox = "open -a Firefox";
+      excel = "open -a 'Microsoft Excel'";
+      cdcode="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/\"";
+      cdspec="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/solarapp/spec\"";
+      cdebt="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
+    };
+  };
+
+  programs.kitty.font.size = 20;
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards

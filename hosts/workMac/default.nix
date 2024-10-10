@@ -1,6 +1,19 @@
 { lib, config, pkgs, user, inputs, ... }:
 
 {
+
+  users.users.${user}.home = "/Users/${user}";
+
+  imports =
+    [
+      ../../common/fonts.nix
+    ];
+
+  environment.variables.CONFIG_DIR = "/Users/${user}/.config/nix-config/";
+  environment.variables.EDITOR = "vim";
+
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
@@ -30,13 +43,5 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
-
-  imports =
-    [
-      ../../common/fonts.nix
-    ];
-
-  environment.variables.CONFIG_DIR = "/Users/${user}/.config/nixos-config/";
-  environment.variables.EDITOR = "vim";
 
 }

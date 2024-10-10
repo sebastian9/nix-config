@@ -10,7 +10,9 @@
     shellAliases = {
       ll = "ls -l";
       cl = "clear";
+      wcl = "wc -l";
       gdl = "git diff HEAD^ HEAD";
+      gci = "git commit --interactive";
       editc = "cd \"$CONFIG_DIR\" && vim -c :Files .";
       cdc = "cd $CONFIG_DIR";
       update = ''

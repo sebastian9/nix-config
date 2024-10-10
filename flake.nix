@@ -65,12 +65,14 @@
     };
 
     home-manager-defaults = user: host: {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${user} = import ./hosts/${host}/home.nix;
-      home-manager.backupFileExtension = "backup";
-      home-manager.extraSpecialArgs = {
-        user = user;
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.${user} = import ./hosts/${host}/home.nix;
+        backupFileExtension = "backup";
+        extraSpecialArgs = {
+          user = user;
+        };
       };
     };
 
