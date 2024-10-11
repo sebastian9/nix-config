@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   programs.zsh = {
 
@@ -13,12 +13,13 @@
       wcl = "wc -l";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
+      falias = "alias | fzf";
       editc = "cd \"$CONFIG_DIR\" && vim -c :Files .";
       cdc = "cd $CONFIG_DIR";
-      update = ''
+      update = lib.mkDefault ''
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" && cd -
       '';
-      update-no-cache = ''
+      update-no-cache = lib.mkDefault ''
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" --no-eval-cache && cd -
       '';
       deploy = ''

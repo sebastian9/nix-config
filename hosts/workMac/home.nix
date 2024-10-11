@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, host_alias, ... }:
 
 {
 
@@ -25,9 +25,12 @@
     shellAliases = {
       firefox = "open -a Firefox";
       excel = "open -a 'Microsoft Excel'";
-      cdcode="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/\"";
-      cdspec="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/solarapp/spec\"";
-      cdebt="cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
+      cdcode = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/\"";
+      cdspec = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/solarapp/spec\"";
+      cdebt = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
+      update = ''
+        cd $CONFIG_DIR && git add -A && sudo darwin-rebuild switch --flake .#${host_alias} && cd -
+      '';
     };
   };
 

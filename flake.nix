@@ -64,14 +64,15 @@
       };
     };
 
-    home-manager-defaults = user: host: {
+    home-manager-defaults = user: name: {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.${user} = import ./hosts/${host}/home.nix;
+        users.${user} = import ./hosts/${name}/home.nix;
         backupFileExtension = "backup";
         extraSpecialArgs = {
           user = user;
+          host_alias = name; # name is a reserved keyword
         };
       };
     };
@@ -99,6 +100,7 @@
         system = systems.${name};
         user = userNames.${name};
         host = hostNames.${name};
+        name = name;
       };
       modules = [
         ./hosts/${name}
