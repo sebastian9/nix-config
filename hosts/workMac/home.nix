@@ -30,7 +30,7 @@
       cdebt = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
       cd1 = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools/energy-business-tools\"";
       update = ''
-        cd $CONFIG_DIR && git add -A && sudo darwin-rebuild switch --flake .#${host_alias} && cd -
+        cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
       '';
     };
   };
