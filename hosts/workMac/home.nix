@@ -10,6 +10,7 @@
     ../../home/git.nix
     ../../home/vim.nix
     ../../home/kitty.nix
+    ../../home/tmux.nix
   ];
 
   home.sessionPath = [
