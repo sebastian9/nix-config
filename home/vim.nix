@@ -15,6 +15,7 @@
       vim-lastplace
       vim-nix
       vim-addon-nix
+      vim-tmux-navigator
       YouCompleteMe
     ];
     settings = {
