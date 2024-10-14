@@ -10,8 +10,6 @@
     plugins = with pkgs.tmuxPlugins; [
       cpu
       catppuccin
-      # C-j C-j C-k & C-j for panel navigation vim included
-      vim-tmux-navigator
       {
         # To enter copy mode: <prefix> [
         # copy to system clipboard: y
@@ -46,6 +44,12 @@
       # Alt vim keys to switch windows
       bind -n M-h previous-window
       bind -n M-l next-window
+
+      # Vim style pane selection
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
 
       # New panes started in $cwd
       bind '"' split-window -v -c "#{pane_current_path}"
