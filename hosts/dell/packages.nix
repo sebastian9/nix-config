@@ -9,14 +9,6 @@ in {
 
     p7zip # archives
 
-    # utils
-    tmux
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    fzf # A command-line fuzzy finder
-    zoxide # cd but better
-
     # networking tools
     mtr # A network diagnostic tool
     iperf3 # Tool to measure IP bandwidth using UDP or TCP
@@ -34,8 +26,6 @@ in {
     gnused
     gnutar
     gawk
-    zstd # Zstandard real-time compression algorithm
-    gnupg # GNU Privacy Guard
 
     # apps
     neovim

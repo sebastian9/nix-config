@@ -12,6 +12,7 @@
     ../../home/kitty.nix
     ../../home/tmux.nix
     ../../home/navi.nix
+    ../../home/modern_unix.nix
   ];
 
   home.sessionPath = [

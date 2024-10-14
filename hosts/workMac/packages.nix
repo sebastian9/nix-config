@@ -9,15 +9,6 @@ in {
 
     p7zip # archives
 
-    # utils
-    tmux
-    lf # command line file manager
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    fzf # A command-line fuzzy finder
-    zoxide # cd but better
-
     # networking tools
     mtr # A network diagnostic tool
     iperf3 # Tool to measure IP bandwidth using UDP or TCP
@@ -45,7 +36,6 @@ in {
 
     # productivity
     glow # markdown previewer in terminal
-
     btop  # replacement of htop/nmon
 
     python3

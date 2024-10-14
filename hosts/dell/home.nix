@@ -17,6 +17,7 @@
     ../../home/kitty.nix
     ../../home/tmux.nix
     ../../home/navi.nix
+    ../../home/modern_unix.nix
   ];
 
   # This value determines the home Manager release that your
