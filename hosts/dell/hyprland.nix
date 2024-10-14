@@ -177,6 +177,9 @@
             bind = $mainMod, R, exec, $menu
             bind = $mainMod, P, pseudo, # dwindle
 
+      # Fullscreen
+            bind = $mainMod, F, fullscreen,
+
       # Move focus with mainMod + arrow keys or vim
             bind = $mainMod, left, movefocus, l
             bind = $mainMod, h, movefocus, l
