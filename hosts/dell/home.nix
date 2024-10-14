@@ -16,6 +16,7 @@
     ../../home/vscode.nix
     ../../home/kitty.nix
     ../../home/tmux.nix
+    ../../home/navi.nix
   ];
 
   # This value determines the home Manager release that your

@@ -11,6 +11,7 @@
     ../../home/vim.nix
     ../../home/kitty.nix
     ../../home/tmux.nix
+    ../../home/navi.nix
   ];
 
   home.sessionPath = [
