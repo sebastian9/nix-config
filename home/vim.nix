@@ -7,11 +7,9 @@
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      sensible
       vim-airline
       fzf-vim
-      zoxide-vim
-      nerdtree
+      catppuccin-vim
       vim-lastplace
       vim-nix
       vim-addon-nix
