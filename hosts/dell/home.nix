@@ -8,6 +8,7 @@
 
   imports = [
     ./packages.nix # standalone packages
+    ./hyprland.nix
 
     # software configs
     ../../home/zsh.nix

@@ -39,7 +39,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
-      theme = "gnzh";
+      theme = "robbyrussell";
     };
 
   };
