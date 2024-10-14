@@ -2,7 +2,11 @@
 {
   programs.tmux = {
     enable = true;
+    mouse = true;
     keyMode = "vi";
+    # Override the hjkl and HJKL bindings for pane navigation and
+    # resizing in VI mode.
+    customPaneNavigationAndResize = true;
     prefix = "C-a";
     resizeAmount = 20;
     terminal = "screen-256color";
@@ -61,17 +65,9 @@
       # Status bar stays out of vim's way
       set -g status-position top
 
-      set -g mouse on
-
       # Alt vim keys to switch windows
       bind -n M-h previous-window
       bind -n M-l next-window
-
-      # Vim style pane selection
-      bind h select-pane -L
-      bind j select-pane -D
-      bind k select-pane -U
-      bind l select-pane -R
 
       # New panes started in $cwd
       bind '"' split-window -v -c "#{pane_current_path}"
