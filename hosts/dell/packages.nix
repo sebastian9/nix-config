@@ -28,7 +28,6 @@ in {
     gawk
 
     # apps
-    neovim
     dolphin # KDE GUI file manager
     photoqt # Image viewer
     vscode.fhs

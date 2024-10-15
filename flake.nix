@@ -13,6 +13,10 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     compose2nix = {
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +68,12 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.${user} = import ./hosts/${name}/home.nix;
+        users.${user} = {
+          imports = [
+            ./hosts/${name}/home.nix
+            inputs.nixvim.homeManagerModules.nixvim
+          ];
+        };
         backupFileExtension = "backup";
         extraSpecialArgs = {
           user = user;

@@ -29,9 +29,6 @@ in {
     zstd # Zstandard real-time compression algorithm
     gnupg # GNU Privacy Guard
 
-    # apps
-    neovim
-
     nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output
 
     # productivity

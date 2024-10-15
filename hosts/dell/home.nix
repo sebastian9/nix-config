@@ -19,6 +19,7 @@
     ../../home/tmux.nix
     ../../home/navi.nix
     ../../home/modern_unix.nix
+    ../../home/neovim
   ];
 
   # This value determines the home Manager release that your
