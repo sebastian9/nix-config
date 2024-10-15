@@ -13,8 +13,9 @@
       wcl = "wc -l";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
+      fvim = "nvim $(fzf)";
       falias = "alias | fzf";
-      editc = "cd \"$CONFIG_DIR\" && vim -c :Files .";
+      editc = "cd \"$CONFIG_DIR\" && nvim -c ':Telescope git_files' .";
       cdc = "cd $CONFIG_DIR";
       update = lib.mkDefault ''
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" && cd -

@@ -9,7 +9,7 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = "nvim";
 
   time.timeZone = "America/Los_Angeles";
 
