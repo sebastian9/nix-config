@@ -10,7 +10,7 @@
     ];
 
   environment.variables.CONFIG_DIR = "/Users/${user}/.config/nix-config/";
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = "nvim";
 
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
 

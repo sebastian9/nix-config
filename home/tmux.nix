@@ -47,6 +47,14 @@
           bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
         '';
       }
+      {
+        # Tmux plugin for creating and switching between sessions based on recently accessed directories
+        plugin = session-wizard;
+        # Keymap C-T
+        extraConfig = ''
+          set -g @session-wizard 'T'
+        '';
+      }
       # Keep this two at the end to avoid issues
       # Saves sessions as if you never left
       {
