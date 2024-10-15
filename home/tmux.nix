@@ -2,7 +2,7 @@
 {
   programs.tmux = {
     enable = true;
-    mouse = true;
+    mouse = false; # otherwise vim and less mouse mode don't work
     keyMode = "vi";
     # Override the hjkl and HJKL bindings for pane navigation and
     # resizing in VI mode.
