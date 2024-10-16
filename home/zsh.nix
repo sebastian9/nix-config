@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   programs.zsh = {
 
@@ -42,6 +42,11 @@
       plugins = [ "git" ];
       theme = "robbyrussell";
     };
+
+    initExtra = ''
+      # programs.zoxide init option wasn't working
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+    '';
 
   };
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, user, inputs, ... }:
+{ pkgs, user, inputs, ... }:
 
 {
 
@@ -19,9 +19,7 @@
   environment.systemPackages = with pkgs;
     [
       kitty
-      vim
-      fzf
-      zoxide
+      nvim
     ];
 
   # Auto upgrade nix package and the daemon service.
