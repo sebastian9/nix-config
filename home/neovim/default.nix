@@ -139,6 +139,74 @@
 
       treesitter.enable = true;
 
+      nvim-autopairs.enable = true;
+
+      conform-nvim = {
+        enable = true;
+        notifyOnError = true;
+        formatOnSave = {
+          timeoutMs = 500;
+          lspFallback = true;
+        };
+        formattersByFt = {
+          python = [ "black" ];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          rust = [ "rustfmt" ];
+          html = [ [ "prettierd" "prettier" ] ];
+          css = [ [ "prettierd" "prettier" ] ];
+          javascript = [ [ "prettierd" "prettier" ] ];
+          javascriptreact = [ [ "prettierd" "prettier" ] ];
+          typescript = [ [ "prettierd" "prettier" ] ];
+          typescriptreact = [ [ "prettierd" "prettier" ] ];
+        };
+      };
+
+      lint = {
+        enable = false; # TODO: why this fails on nix
+        lintersByFt = {
+          go = [ "golangci-lint" ];
+          nix = [ "statix" ];
+          lua = [ "selene" ];
+          python = [ "ruff" "mypy" ];
+          javascript = [ "eslint_d" ];
+          javascriptreact = [ "eslint_d" ];
+          typescript = [ "eslint_d" ];
+          typescriptreact = [ "eslint_d" ];
+          json = [ "jsonlint" ];
+          bash = [ "shellcheck" ];
+        };
+      };
+
+      lsp-format.enable = true;
+
+      lsp = {
+
+        enable = true;
+
+        servers = {
+          nixd.enable = true;
+        };
+
+        keymaps =  {
+
+          diagnostic = {
+            "<leader>en" = "goto_prev";
+            "<leader>ep" = "goto_next";
+          };
+
+          lspBuf = {
+            "gd" = "definition";
+            "gD" = "references";
+            "gt" = "type_definition";
+            "gi" = "implementation";
+            "K" = "hover";
+          };
+
+        };
+
+      };
+
       telescope = {
 
         enable = true;
