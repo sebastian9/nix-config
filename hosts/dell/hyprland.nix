@@ -30,7 +30,7 @@
       # Or execute your favorite apps at launch like this:
 
             exec-once = waybar & hyprpaper
-            exec-once = [workspace 1 silent] $terminal
+            exec-once = [workspace 1 silent] $terminal tmux
             exec-once = [workspace 2 silent] firefox
 
 
