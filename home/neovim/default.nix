@@ -55,7 +55,7 @@
         key = "J";
         action = ":m '>+1<CR>gv=gv";
         mode = "v";
-        options.desc = "Move selection up";
+        options.desc = "Move selection down";
       }
       {
         key = "K";
@@ -98,10 +98,10 @@
         options.desc = "Yank selection to system register";
       }
       {
-        key = "<leader>Y";
-        action = "\"+Y";
+        key = "Y";
+        action = "y$";
         mode = "n";
-        options.desc = "Yank until end of line to system register";
+        options.desc = "Fix Y; yank until end of line";
       }
       {
         key = "<leader>d";
