@@ -6,6 +6,8 @@
 
     viAlias = true;
 
+    vimAlias = true;
+
     colorscheme = "midnight";
 
     opts = {
@@ -121,12 +123,19 @@
         mode = "n";
         options.desc = "Q is a weird place to be";
       }
+      {
+        key = "<leader>s";
+        action = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>";
+        mode = "n";
+        options.desc = "Substitute selection";
+      }
     ];
 
     extraPlugins = with pkgs.vimPlugins; [
       midnight-nvim # color theme
       vim-lastplace
       YouCompleteMe
+      vim-tmux-navigator
     ];
 
     plugins = {

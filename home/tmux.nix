@@ -12,6 +12,7 @@
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
       {
         plugin = catppuccin;
         extraConfig = ''
@@ -76,6 +77,16 @@
       # Alt vim keys to switch windows
       bind -n M-h previous-window
       bind -n M-l next-window
+
+      # Alt vim keys to switch sessions
+      bind -n M-H switch-client -p
+      bind -n M-L switch-client -n
+
+      # Vim style pane selection
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
 
       # New panes started in $cwd
       bind '"' split-window -v -c "#{pane_current_path}"
