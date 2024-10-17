@@ -52,7 +52,7 @@
         plugin = session-wizard;
         # Keymap C-T
         extraConfig = ''
-          set -g @session-wizard 'T'
+          set -g @session-wizard 's'
         '';
       }
       # Keep this two at the end to avoid issues
