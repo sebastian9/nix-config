@@ -5,6 +5,7 @@
     ./options.nix
     ./plugins/cloak.nix
     ./plugins/cmp.nix
+    ./plugins/debugger.nix
     ./plugins/formatting.nix
     ./plugins/harpoon.nix
     ./plugins/lint.nix
@@ -22,10 +23,7 @@
     colorscheme = "midnight";
 
     plugins = {
-      # AST syntax highlighting
-      treesitter.enable = true;
-      # Debugger
-      dap.enable = true;
+      # TODO - Add github copilot
       # Go to the lastplace a file was edited
       lastplace.enable = true;
       # Git tree like undo tracking
@@ -34,6 +32,8 @@
       nix.enable = true;
       # Track todo comments :TodoTelescope
       todo-comments.enable = true;
+      # Lazy loading of plugins
+      lazy.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
