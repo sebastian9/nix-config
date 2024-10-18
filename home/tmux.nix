@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     mouse = false; # otherwise vim and less mouse mode don't work

@@ -1,6 +1,3 @@
-{ pkgs, ... }:
-{
-
-  environment.systemPackages = [ pkgs.nginx ];
-
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.nginx];
 }

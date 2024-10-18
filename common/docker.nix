@@ -1,5 +1,8 @@
-{ inputs, system, ... }:
 {
+  inputs,
+  system,
+  ...
+}: {
   virtualisation.docker = {
     enable = true;
   };

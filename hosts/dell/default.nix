@@ -1,20 +1,23 @@
-{ lib, config, pkgs, user, ... }:
-
 {
-
+  lib,
+  config,
+  pkgs,
+  user,
+  ...
+}: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common/base.nix
-      ../../common/system_packages.nix
-      ../../common/fonts.nix
-      ../../common/garbage_collection.nix
-      ../../common/nas.nix
-      ../../common/docker.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common/base.nix
+    ../../common/system_packages.nix
+    ../../common/fonts.nix
+    ../../common/garbage_collection.nix
+    ../../common/nas.nix
+    ../../common/docker.nix
+  ];
 
   services.openssh = {
     enable = true; # For github
@@ -49,7 +52,7 @@
   users.users.${user} = {
     isNormalUser = true;
     description = "Main user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # List packages installed in system profile. To search, run:
@@ -83,7 +86,7 @@
   ];
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ user ];
+  users.extraGroups.vboxusers.members = [user];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -92,5 +95,4 @@
   # Before changing this value read the documentation for this option
   # ().
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

@@ -1,9 +1,12 @@
-{ pkgs, host, ... }:
 {
+  pkgs,
+  host,
+  ...
+}: {
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   security.sudo.wheelNeedsPassword = false;
 

@@ -1,7 +1,9 @@
-{ lib, config, pkgs, ... }:
-
 {
-
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   boot.loader.grub = {
     enable = true;
     device = "/dev/nvme0n1";
@@ -27,5 +29,4 @@
   # Before changing this value read the documentation for this option
   # ().
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

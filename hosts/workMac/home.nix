@@ -1,7 +1,10 @@
-{ config, pkgs, user, host_alias, ... }:
-
 {
-
+  config,
+  pkgs,
+  user,
+  host_alias,
+  ...
+}: {
   imports = [
     ./packages.nix # standalone packages
 

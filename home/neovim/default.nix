@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   imports = [
     ./plugins/telescope.nix
     ./plugins/cmp.nix
@@ -10,7 +7,6 @@
   ];
 
   programs.nixvim = {
-
     enable = true;
 
     viAlias = true;
@@ -146,7 +142,6 @@
     ];
 
     plugins = {
-
       nix.enable = true;
 
       lualine.enable = true;
@@ -164,29 +159,27 @@
       lint = {
         enable = true;
         lintersByFt = {
-          go = [ "golangci-lint" ];
+          go = ["golangci-lint"];
           # nix = [ "statix" ]; # TODO: why this fails on nix
-          lua = [ "selene" ];
-          python = [ "ruff" "mypy" ];
-          javascript = [ "eslint_d" ];
-          javascriptreact = [ "eslint_d" ];
-          typescript = [ "eslint_d" ];
-          typescriptreact = [ "eslint_d" ];
-          json = [ "jsonlint" ];
-          bash = [ "shellcheck" ];
+          lua = ["selene"];
+          python = ["ruff" "mypy"];
+          javascript = ["eslint_d"];
+          javascriptreact = ["eslint_d"];
+          typescript = ["eslint_d"];
+          typescriptreact = ["eslint_d"];
+          json = ["jsonlint"];
+          bash = ["shellcheck"];
         };
       };
 
       lsp = {
-
         enable = true;
 
         servers = {
           nixd.enable = true;
         };
 
-        keymaps =  {
-
+        keymaps = {
           silent = true;
 
           diagnostic = {
@@ -202,12 +195,8 @@
             "K" = "hover";
             "<leader>r" = "rename";
           };
-
         };
-
       };
-
     };
-
   };
 }

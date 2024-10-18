@@ -1,5 +1,4 @@
-{ ... }:
-{
-  imports = [ ./docker-compose.nix ];
-  networking.firewall.allowedTCPPorts = [ 3000 ];
+{...}: {
+  imports = [./docker-compose.nix];
+  networking.firewall.allowedTCPPorts = [3000];
 }

@@ -1,9 +1,7 @@
-{ pkgs, ...}:
-{
-
-  environment.systemPackages = [ pkgs.photoprism ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.photoprism];
   environment.etc."photoprism-admin-pass".text = "test_phrase";
-  networking.firewall.allowedTCPPorts = [ 2342 ];
+  networking.firewall.allowedTCPPorts = [2342];
 
   services.photoprism = {
     enable = true;

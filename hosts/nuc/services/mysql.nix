@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-
-{
-
-  environment.systemPackages = [ pkgs.mariadb ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.mariadb];
 
   services = {
     mysql = {

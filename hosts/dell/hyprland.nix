@@ -51,7 +51,7 @@
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
 
       # https://wiki.hyprland.org/Configuring/Variables/#general
-            general { 
+            general {
             gaps_in = 5
             gaps_out = 10
 
@@ -62,7 +62,7 @@
             col.inactive_border = rgba(595959aa)
 
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
-            resize_on_border = true 
+            resize_on_border = true
 
           # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
             allow_tearing = false
@@ -121,7 +121,7 @@
             }
 
       # https://wiki.hyprland.org/Configuring/Variables/#misc
-            misc { 
+            misc {
             force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
             }

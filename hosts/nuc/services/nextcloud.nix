@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-
-{
-
-  environment.systemPackages = [ pkgs.nextcloud29 ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.nextcloud29];
   environment.etc."nextcloud-admin-pass".text = "test_phrase";
 
   services.nextcloud = {
@@ -17,6 +14,5 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
-
+  networking.firewall.allowedTCPPorts = [80 443];
 }
