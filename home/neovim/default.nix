@@ -144,8 +144,6 @@
     plugins = {
       nix.enable = true;
 
-      lualine.enable = true;
-
       lastplace.enable = true;
 
       undotree.enable = true;
@@ -155,6 +153,22 @@
       treesitter.enable = true;
 
       nvim-autopairs.enable = true;
+
+      todo-comments.enable = true;
+
+      lualine = {
+        enable = true;
+        globalstatus = true;
+        sections.lualine_c = [
+          {
+            name = "filename";
+            extraConfig = {
+              file_status = true;
+              path = 4; # 4: Filename and parent dir, with tilde as the home directory
+            };
+          }
+        ];
+      };
 
       lint = {
         enable = true;
