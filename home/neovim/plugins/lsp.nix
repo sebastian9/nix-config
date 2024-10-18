@@ -1,9 +1,10 @@
 {...}: {
   programs.nixvim.plugins = {
-    harpoon = {
+    lsp = {
       enable = true;
-      enableTelescope = true;
-      keymapsSilent = true;
+      servers = {
+        nixd.enable = true;
+      };
     };
   };
 }
