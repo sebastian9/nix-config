@@ -1,5 +1,14 @@
 { pkgs, ... }:
+
 {
+
+  imports = [
+    ./plugins/telescope.nix
+    ./plugins/cmp.nix
+    ./plugins/formatting.nix
+    ./plugins/harpoon.nix
+  ];
+
   programs.nixvim = {
 
     enable = true;
@@ -121,7 +130,7 @@
         key = "Q";
         action = "<nop>";
         mode = "n";
-        options.desc = "Q is a weird place to be";
+        options.desc = "Worst place in the universe";
       }
       {
         key = "<leader>s";
@@ -133,8 +142,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       midnight-nvim # color theme
-      vim-lastplace
-      YouCompleteMe
       vim-tmux-navigator
     ];
 
@@ -144,38 +151,21 @@
 
       lualine.enable = true;
 
+      lastplace.enable = true;
+
       undotree.enable = true;
+
+      dap.enable = true;
 
       treesitter.enable = true;
 
       nvim-autopairs.enable = true;
 
-      conform-nvim = {
-        enable = true;
-        notifyOnError = true;
-        formatOnSave = {
-          timeoutMs = 500;
-          lspFallback = true;
-        };
-        formattersByFt = {
-          python = [ "black" ];
-          lua = [ "stylua" ];
-          nix = [ "nixfmt" ];
-          rust = [ "rustfmt" ];
-          html = [ [ "prettierd" "prettier" ] ];
-          css = [ [ "prettierd" "prettier" ] ];
-          javascript = [ [ "prettierd" "prettier" ] ];
-          javascriptreact = [ [ "prettierd" "prettier" ] ];
-          typescript = [ [ "prettierd" "prettier" ] ];
-          typescriptreact = [ [ "prettierd" "prettier" ] ];
-        };
-      };
-
       lint = {
-        enable = false; # TODO: why this fails on nix
+        enable = true;
         lintersByFt = {
           go = [ "golangci-lint" ];
-          nix = [ "statix" ];
+          # nix = [ "statix" ]; # TODO: why this fails on nix
           lua = [ "selene" ];
           python = [ "ruff" "mypy" ];
           javascript = [ "eslint_d" ];
@@ -187,8 +177,6 @@
         };
       };
 
-      lsp-format.enable = true;
-
       lsp = {
 
         enable = true;
@@ -199,9 +187,11 @@
 
         keymaps =  {
 
+          silent = true;
+
           diagnostic = {
-            "<leader>en" = "goto_prev";
-            "<leader>ep" = "goto_next";
+            "<leader>[e" = "goto_prev";
+            "<leader>]e" = "goto_next";
           };
 
           lspBuf = {
@@ -210,44 +200,9 @@
             "gt" = "type_definition";
             "gi" = "implementation";
             "K" = "hover";
+            "<leader>r" = "rename";
           };
 
-        };
-
-      };
-
-      telescope = {
-
-        enable = true;
-
-        keymaps = {
-          "<leader>/" = "live_grep";
-          "<C-p>" = "git_files"; # respects git_ignore
-          "<leader>ff" = "find_files";
-          "<leader>fb" = "buffers";
-          "<leader>fc" = "commands";
-          "<leader>fk" = "keymaps";
-          "<leader>fm" = "marks";
-          "<leader>fh" = "help_tags";
-        };
-
-        defaults = {
-          file_ignore_patterns = [
-            "^.git/"
-            "^.mypy_cache/"
-            "^__pycache__/"
-            "^output/"
-            "^data/"
-            "%.ipynb"
-          ];
-          set_env.colorterm = "truecolor";
-          selection_caret = "> ";
-          mappings = {
-            i = {
-              "<C-n>".__raw = "require('telescope.actions').move_selection_next";
-              "<C-p>".__raw = "require('telescope.actions').move_selection_previous";
-            };
-          };
         };
 
       };
