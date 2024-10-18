@@ -77,6 +77,14 @@
         options.desc = "Yank selection to system register";
       }
       {
+        key = "<leader>y";
+        action = "<cmd>execute setreg('+',getreg('\"'))<CR>";
+        mode = "n";
+        options.desc = ''
+          Set system register to last deleted, changed or yanked content
+        '';
+      }
+      {
         key = "Y";
         action = "y$";
         mode = "n";
