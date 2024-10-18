@@ -149,6 +149,32 @@
         options.desc = "Alternate buffer";
       }
 
+      # Remaps for dealing with word wrap and adding jumps to the jumplist.
+      # TODO - understand this
+      {
+        mode = "n";
+        key = "j";
+        action.__raw = "
+          [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']]
+        ";
+        options = {
+          expr = true;
+          desc = "Remap for dealing with word wrap and adding jumps to the jumplist.";
+        };
+      }
+
+      {
+        mode = "n";
+        key = "k";
+        action.__raw = "
+          [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']]
+        ";
+        options = {
+          expr = true;
+          desc = "Remap for dealing with word wrap and adding jumps to the jumplist.";
+        };
+      }
+
       # DAP Telescope Actions
       {
         mode = "n";
