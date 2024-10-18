@@ -17,6 +17,22 @@
         action = ":UndotreeShow<CR>";
         mode = "n";
       }
+      {
+        key = "<leader><M-c>";
+        action = ''
+          :exe "!code " .. shellescape(expand("%"))<CR>
+        '';
+        mode = "n";
+        option.desc = "Open file in vscode";
+      }
+      {
+        key = "<leader><M-C>";
+        action = ''
+          :exe "!code " .. shellescape(expand(" .. getcwd() .. "))<CR>
+        '';
+        mode = "n";
+        option.desc = "Open project in vscode";
+      }
 
       # Editing
       {
