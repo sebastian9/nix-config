@@ -25,6 +25,7 @@
       relativenumber = true;
       number = true;
       ignorecase = true;
+      smartcase = true; # Don't ignore case with capitals
       scrolloff = 8;
       hlsearch = true;
       incsearch = true;
@@ -34,7 +35,7 @@
       tabstop = 4;
       softtabstop = 4;
       undofile = true;
-      wrap = false;
+      wrap = true;
       swapfile = false;
       backup = false;
       updatetime = 50;
