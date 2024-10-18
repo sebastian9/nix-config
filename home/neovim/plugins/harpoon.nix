@@ -5,8 +5,12 @@
       enableTelescope = true;
       keymapsSilent = true;
       keymaps = {
-        addFile = "<leader>'";
-        toggleQuickMenu = "<leader>he";
+        # m is the native set mark key
+        # ' is  the native mark motion
+        # j is the first mark
+        # h is too far away from '
+        addFile = "mj";
+        toggleQuickMenu = "<leader>me";
         navFile = {
           "1" = "'j";
           "2" = "'k";

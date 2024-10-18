@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./startup.nix
     ./plugins/telescope.nix
     ./plugins/cmp.nix
     ./plugins/formatting.nix
@@ -44,7 +45,7 @@
       }
       {
         key = "<leader>n";
-        action = ":Ex<CR>";
+        action = ":lua MiniFiles.open()<CR>";
         mode = "n";
       }
       {
@@ -152,9 +153,23 @@
 
       treesitter.enable = true;
 
-      nvim-autopairs.enable = true;
-
       todo-comments.enable = true;
+
+      which-key.enable = true;
+
+      mini = {
+        enable = true;
+        modules = {
+          comment = {};
+          diff = {}; # hunk editting
+          cursorword = {};
+          files = {}; # file navigation and directory edits
+          pairs = {};
+          surround = {};
+          trailspace = {}; # show and remove trailing spaces
+          notify = {};
+        };
+      };
 
       lualine = {
         enable = true;
@@ -207,7 +222,7 @@
             "gt" = "type_definition";
             "gi" = "implementation";
             "K" = "hover";
-            "<leader>r" = "rename";
+            "<leader>mr" = "rename"; # vspacecode
           };
         };
       };
