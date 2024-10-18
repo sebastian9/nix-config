@@ -25,7 +25,7 @@
       number = true;
       ignorecase = true;
       scrolloff = 8;
-      hlsearch = false;
+      hlsearch = true;
       incsearch = true;
       autoindent = true;
       smartindent = true;
