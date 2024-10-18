@@ -2,6 +2,7 @@
   imports = [
     ./startup.nix
     ./keymaps.nix
+    ./plugins/cloak.nix
     ./plugins/cmp.nix
     ./plugins/formatting.nix
     ./plugins/harpoon.nix
@@ -37,6 +38,7 @@
       swapfile = false;
       backup = false;
       updatetime = 50;
+      virtualedit = "block"; # nice visual-block
     };
 
     plugins = {

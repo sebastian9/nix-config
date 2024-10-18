@@ -114,7 +114,7 @@
       {
         key = "<leader>s";
         action = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>";
-        mode = "n";
+        mode = ["n" "v"];
         options.desc = "Substitute selection";
       }
 
