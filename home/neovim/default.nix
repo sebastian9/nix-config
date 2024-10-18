@@ -12,6 +12,7 @@
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
+    ./plugins/treesitter.nix
   ];
 
   programs.nixvim = {
