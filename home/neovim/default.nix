@@ -20,7 +20,11 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    colorscheme = "midnight";
+    # colorscheme = "midnight";
+    colorschemes.catppuccin = {
+      enable = true;
+      settings.flavour = "mocha";
+    };
 
     plugins = {
       # TODO - Add github copilot
