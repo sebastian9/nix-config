@@ -1,0 +1,23 @@
+{...}: {
+  programs.nixvim.plugins = {
+    # Formatting
+    none-ls.sources.formatting = {
+      alejandra.enable = true;
+    };
+    conform-nvim.formattersByFt = {
+      nix = ["alejandra"];
+    };
+
+    # Linting
+    lint.lintersByFt = {
+      # nix = [ "statix" ]; # TODO: why this fails on nix
+    };
+
+    # Language
+    lsp = {
+      servers = {
+        nixd.enable = true;
+      };
+    };
+  };
+}

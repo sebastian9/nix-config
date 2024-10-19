@@ -3,13 +3,11 @@
     ./startup.nix
     ./keymaps.nix
     ./options.nix
+    ./plugins/language_utils
+    ./plugins/language_specific
     ./plugins/cloak.nix
-    ./plugins/cmp.nix
     ./plugins/debugger.nix
-    ./plugins/formatting.nix
     ./plugins/harpoon.nix
-    ./plugins/lint.nix
-    ./plugins/lsp.nix
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix

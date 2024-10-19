@@ -27,10 +27,10 @@
           format = ''
             function(entry, item)
               local menu_icon = {
-                nvim_lsp = '[LSP]',
-                luasnip = '[SNIP]',
-                buffer = '[BUF]',
-                path = '[PATH]',
+                nvim_lsp = '🔧',
+                luasnip = '✂️',
+                buffer = '📄',
+                path = '🗂️',
               }
 
               item.menu = menu_icon[entry.source.name]

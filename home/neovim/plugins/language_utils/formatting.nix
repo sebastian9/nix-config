@@ -3,8 +3,6 @@
     none-ls = {
       enable = true;
       sources.formatting = {
-        alejandra.enable = true;
-        black.enable = true;
         prettier.enable = true;
         sqlformat.enable = true;
         stylua.enable = true;
@@ -27,17 +25,10 @@
       notifyOnError = true;
 
       formattersByFt = {
-        nix = ["alejandra"];
-        python = ["isort" "black"];
         lua = ["stylua"];
         yaml = ["yamlfmt"];
-        html = [["prettierd" "prettier"]];
-        css = [["prettierd" "prettier"]];
         json = [["prettierd" "prettier"]];
-        javascript = [["prettierd" "prettier"]];
-        javascriptreact = [["prettierd" "prettier"]];
-        typescript = [["prettierd" "prettier"]];
-        typescriptreact = [["prettierd" "prettier"]];
+        sql = ["sqlformat"];
       };
     };
   };

@@ -1,10 +1,20 @@
-# TODO - connect somewhere and move all python stuff here
-{
-  plugins = {
-    conform-nvim = {
-      enable = true;
-      settings = {formatters_by_ft.python = ["black"];};
+{...}: {
+  programs.nixvim.plugins = {
+    # Formatting
+    none-ls.sources.formatting = {
+      black.enable = true;
+      isort.enable = true;
     };
+    conform-nvim.formattersByFt = {
+      python = ["isort" "black"];
+    };
+
+    # Linting
+    lint.lintersByFt = {
+      python = ["ruff" "mypy" "pylance"];
+    };
+
+    # Language
     lsp.servers.pylsp = {
       enable = true;
       settings.plugins = {
@@ -22,6 +32,5 @@
         yapf.enabled = true;
       };
     };
-    none-ls.sources.formatting.black.enable = true;
   };
 }
