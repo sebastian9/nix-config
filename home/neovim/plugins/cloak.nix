@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim.plugins.cloak = {
     enable = true;
     settings = {
@@ -8,7 +8,7 @@
         {
           file_pattern = [
             ".env*"
-            ".fuze*"
+            "fuze.env*"
           ];
           cloak_pattern = "=.+";
         }
