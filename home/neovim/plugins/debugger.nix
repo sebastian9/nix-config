@@ -1,73 +1,75 @@
 {pkgs, ...}: {
-  programs.nixvim.plugins.dap = {
-    enable = true;
+  programs.nixvim = {
+    plugins.dap = {
+      enable = true;
 
-    signs = {
-      dapBreakpoint = {
-        text = "●";
-        texthl = "DapBreakpoint";
-      };
-      dapBreakpointCondition = {
-        text = "";
-        texthl = "DapBreakpointCondition";
-      };
-      dapLogPoint = {
-        text = "◆";
-        texthl = "DapLogPoint";
-      };
-    };
-
-    extensions = {
-      dap-python = {
-        enable = true;
+      signs = {
+        dapBreakpoint = {
+          text = "●";
+          texthl = "DapBreakpoint";
+        };
+        dapBreakpointCondition = {
+          text = "";
+          texthl = "DapBreakpointCondition";
+        };
+        dapLogPoint = {
+          text = "◆";
+          texthl = "DapLogPoint";
+        };
       };
 
-      dap-ui = {
-        enable = true;
-
-        floating.mappings = {
-          close = [
-            "<ESC>"
-            "q"
-          ];
+      extensions = {
+        dap-python = {
+          enable = true;
         };
 
-        icons = {
-          expanded = "▾";
-          collapsed = "▸";
-          current_frame = "*";
-        };
+        dap-ui = {
+          enable = true;
 
-        controls = {
+          floating.mappings = {
+            close = [
+              "<ESC>"
+              "q"
+            ];
+          };
+
           icons = {
-            pause = "⏸";
-            play = "▶";
-            step_into = "⏎";
-            step_over = "⏭";
-            step_out = "⏮";
-            step_back = "b";
-            run_last = "▶▶";
-            terminate = "⏹";
-            disconnect = "⏏";
+            expanded = "▾";
+            collapsed = "▸";
+            current_frame = "*";
+          };
+
+          controls = {
+            icons = {
+              pause = "⏸";
+              play = "▶";
+              step_into = "⏎";
+              step_over = "⏭";
+              step_out = "⏮";
+              step_back = "b";
+              run_last = "▶▶";
+              terminate = "⏹";
+              disconnect = "⏏";
+            };
           };
         };
+
+        dap-virtual-text = {
+          enable = true;
+        };
       };
 
-      dap-virtual-text = {
-        enable = true;
+      configurations = {
+        # java = [
+        #   {
+        #     type = "java";
+        #     request = "launch";
+        #     name = "Debug (Attach) - Remote";
+        #     hostName = "127.0.0.1";
+        #     port = 5005;
+        #   }
+        # ];
       };
-    };
-
-    configurations = {
-      # java = [
-      #   {
-      #     type = "java";
-      #     request = "launch";
-      #     name = "Debug (Attach) - Remote";
-      #     hostName = "127.0.0.1";
-      #     port = 5005;
-      #   }
-      # ];
     };
 
     # Allow DAP UI to automatically open and close when possible

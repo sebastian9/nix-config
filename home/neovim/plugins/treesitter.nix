@@ -1,33 +1,24 @@
 {...}: {
-  programs.nixvim = {
+  programs.nixvim.plugins = {
     treesitter = {
       enable = true;
-      settings = {
-        highlight = {
-          enable = true;
-        };
-        indent = {
-          enable = true;
-        };
-        autopairs = {
-          enable = true;
-        };
-        folding = {
-          enable = true;
-        };
-        auto_install = true;
-        # TODO what is this?
-        # incremental_selection = {
-        #   enable = true;
-        #   keymaps = {
-        #     init_selection = "<C-space>";
-        #     node_incremental = "<C-space>";
-        #     scope_incremental = false;
-        #     node_decremental = "<bs>";
-        #   };
-        # };
-      };
+      indent = true;
+      folding = true;
+      # nixvim specific injections, like lua highlighting in extraConfigLua
       nixvimInjections = true;
+      # highlight.enable = true; # needed in unstable
+      # autopairs = true; # not available yet
+      # auto_install = true;
+      # TODO what is this?
+      # incremental_selection = {
+      #   enable = true;
+      #   keymaps = {
+      #     init_selection = "<C-space>";
+      #     node_incremental = "<C-space>";
+      #     scope_incremental = false;
+      #     node_decremental = "<bs>";
+      #   };
+      # };
     };
 
     treesitter-textobjects = {
