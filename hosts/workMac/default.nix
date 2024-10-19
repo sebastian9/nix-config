@@ -11,7 +11,6 @@
   ];
 
   environment.variables.CONFIG_DIR = "/Users/${user}/.config/nix-config/";
-  environment.variables.EDITOR = "nvim";
 
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
 
@@ -19,7 +18,6 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     kitty
-    nvim
   ];
 
   # Auto upgrade nix package and the daemon service.
