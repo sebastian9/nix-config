@@ -1,8 +1,9 @@
-{...}: {
+_: {
   programs.nixvim.plugins = {
     # Formatting
-    none-ls.sources.formatting = {
-      alejandra.enable = true;
+    none-ls.sources = {
+      formatting.alejandra.enable = true;
+      diagnostics.statix.enable = true;
     };
     conform-nvim.formattersByFt = {
       nix = ["alejandra"];
@@ -10,7 +11,7 @@
 
     # Linting
     lint.lintersByFt = {
-      # nix = [ "statix" ]; # TODO: why this fails on nix
+      nix = ["statix"];
     };
 
     # Language
