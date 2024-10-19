@@ -1,17 +1,34 @@
 {pkgs, ...}: {
+  home.shellAliases = {
+    tma = "tmux a";
+  };
   programs.tmux = {
     enable = true;
-    mouse = false; # otherwise vim and less mouse mode don't work
+    mouse = true;
     keyMode = "vi";
     # Override the hjkl and HJKL bindings for pane navigation and
     # resizing in VI mode.
     customPaneNavigationAndResize = true;
-    prefix = "C-a";
+    shortcut = "a";
     resizeAmount = 20;
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
+      # location, temp and network still showing and date missing
+      # {
+      #   plugin = dracula;
+      #   extraConfig = ''
+      #     set -g @dracula-refresh-rate 10
+      #     set -g @dracula-show-powerline true
+      #     set -g @dracula-show-left-icon session
+      #     set -g @dracula-show-battery true
+      #     set -g @dracula-cpu-display-load true
+      #     set -g @dracula-show-location false
+      #     set -g @dracula-show-fahrenheit false
+      #     set -g @dracula-network-bandwidth-show-interface false
+      #   '';
+      # }
       {
         plugin = catppuccin;
         extraConfig = ''
@@ -70,6 +87,9 @@
       }
     ];
     extraConfig = ''
+      # For neovim mouse support
+      set -g focus-events on
+
       # Status bar stays out of vim's way
       set -g status-position top
 
