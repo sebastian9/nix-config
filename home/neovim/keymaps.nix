@@ -107,7 +107,7 @@
         options.desc = "Fix Y; yank until end of line";
       }
       {
-        key = "<leader>d";
+        key = "<leader>D"; # d is the debugging group
         action = "\"_d";
         mode = ["n" "v"];
         options.desc = "Delete to void register";

@@ -3,7 +3,7 @@
     treesitter = {
       enable = true;
       indent = true;
-      folding = true;
+      folding = false; # for now, folds by default and it's annoying
       # nixvim specific injections, like lua highlighting in extraConfigLua
       nixvimInjections = true;
       # highlight.enable = true; # needed in unstable
