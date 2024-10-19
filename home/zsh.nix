@@ -11,6 +11,8 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      cd = "z";
+      cat = "bat";
       ll = "ls -l";
       cl = "clear";
       wcl = "wc -l";
@@ -18,6 +20,8 @@
       gci = "git commit --interactive";
       fvim = "nvim $(fzf)";
       falias = "alias | fzf";
+      tma = "tmux a";
+      lg = "lazygit";
       editc = "cd \"$CONFIG_DIR\" && nvim -c ':Telescope git_files' .";
       cdc = "cd $CONFIG_DIR";
       update = lib.mkDefault ''

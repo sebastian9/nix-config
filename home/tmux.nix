@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  home.shellAliases = {
-    tma = "tmux a";
-  };
   programs.tmux = {
     enable = true;
     mouse = true;
