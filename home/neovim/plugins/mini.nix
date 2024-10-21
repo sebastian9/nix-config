@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim.plugins = {
     # bunch of classic libraries
     mini = {

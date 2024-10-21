@@ -1,5 +1,5 @@
 # All keymaps _should_ be here
-{...}: {
+_: {
   programs.nixvim = {
     globals.mapleader = " ";
     keymaps = [

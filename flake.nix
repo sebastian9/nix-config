@@ -56,7 +56,7 @@
 
     overlay-unstable = system: final: prev: {
       unstable = import inputs.nixpkgs-unstable {
-        system = system;
+        inherit system;
         config.allowUnfree = true;
       };
     };
@@ -73,7 +73,7 @@
         };
         backupFileExtension = "backup";
         extraSpecialArgs = {
-          user = user;
+          inherit user;
           host_alias = name; # name is a reserved keyword
         };
       };
@@ -104,7 +104,7 @@
           system = systems.${name};
           user = userNames.${name};
           host = hostNames.${name};
-          name = name;
+          inherit name;
         };
         modules = [
           ./hosts/${name}

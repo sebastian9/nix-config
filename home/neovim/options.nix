@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.nixvim.opts = {
     # You can search for any of these using Telescope help_tags
 
