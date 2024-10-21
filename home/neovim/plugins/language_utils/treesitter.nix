@@ -3,25 +3,27 @@
     treesitter = {
       enable = true;
       indent = true;
-      folding = false; # for now, folds by default and it's annoying
-      # nixvim specific injections, like lua highlighting in extraConfigLua
-      nixvimInjections = true;
+      folding = false; # for now, needs plugin to tag along
       # highlight.enable = true; # needed in unstable
       # autopairs = true; # not available yet
-      # TODO what is this?
-      # incremental_selection = {
-      #   enable = true;
-      #   keymaps = {
-      #     init_selection = "<C-space>";
-      #     node_incremental = "<C-space>";
-      #     scope_incremental = false;
-      #     node_decremental = "<bs>";
-      #   };
-      # };
-    };
 
+      # nixvim specific injections, like lua highlighting in extraConfigLua
+      nixvimInjections = true;
+
+      # incremental selection based on the named nodes from the grammar
+      incrementalSelection = {
+        enable = true;
+        keymaps = {
+          initSelection = "gnn";
+          nodeIncremental = "grn";
+          scopeIncremental = "grc";
+          nodeDecremental = "grm";
+        };
+      };
+    };
     treesitter-textobjects = {
       enable = true;
+      # Define your own text objects mappings similar to `ip` (inner paragraph) and `ap`
       select = {
         enable = true;
         lookahead = true;
@@ -39,6 +41,7 @@
           "at" = "@comment.outer";
         };
       };
+      # Go to previous/next TS text objects
       move = {
         enable = true;
         gotoNextStart = {
@@ -58,7 +61,7 @@
           "[]" = "@class.outer";
         };
       };
-      # TODO what is this?
+      # Swap TS nodes around
       swap = {
         enable = true;
         swapNext = {
@@ -70,10 +73,13 @@
       };
     };
 
+    # Auto-close and auto-rename html tags
     ts-autotag = {
       enable = true;
     };
 
+    # Show code context (function, class, list, etc)
+    # on top of window
     treesitter-context = {
       enable = true;
       settings = {
@@ -87,7 +93,9 @@
       };
     };
 
-    # TODO does this replace mini.comment?
+    # This plugin only changes the commentstring setting.
+    # It does not add any mappings for commenting.
+    # It does not replace mini.comment
     ts-context-commentstring = {
       enable = true;
       disableAutoInitialization = false;
