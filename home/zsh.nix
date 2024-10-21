@@ -22,7 +22,7 @@
       falias = "alias | fzf";
       tma = "tmux a";
       lg = "lazygit";
-      editc = "cd \"$CONFIG_DIR\" && nvim -c ':Telescope git_files' .";
+      editc = "cd \"$CONFIG_DIR\" && nvim";
       cdc = "cd $CONFIG_DIR";
       update = lib.mkDefault ''
         cd $CONFIG_DIR && git add -A && sudo nixos-rebuild switch --flake "$CONFIG_DIR#dell" && cd -
