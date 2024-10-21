@@ -1,42 +1,32 @@
 _: {
-  programs.nixvim.plugins = {
-    # Formatting
-    none-ls.sources = {
-      formatting = {
-        black.enable = true;
-      };
-    };
-    conform-nvim.formattersByFt = {
-      python = [
-        "black"
-      ];
-    };
-
-    # Linting
-    lint.lintersByFt = {
-      python = ["ruff" "mypy" "pylint"];
-    };
-
-    # Language
-    lsp.servers.pylsp = {
-      enable = true;
-      settings.plugins = {
-        black.enabled = true;
-        ruff.enabled = true;
-        pylint.enabled = true;
-        pylsp_mypy = {
-          enabled = true;
-          dmypy = true;
-          report_progress = true;
+  # Thanks Gaetan
+  programs = {
+    nixvim = {
+      plugins = {
+        conform-nvim.formattersByFt = {
+          python = [
+            "black"
+          ];
         };
-        # isort.enabled = true;
-        # TODO - curate below
-        # mccabe.enabled = true;
-        # pycodestyle.enabled = true;
-        # pydocstyle.enabled = true;
-        # pyflakes.enabled = true;
-        # rope.enabled = true;
-        # yapf.enabled = true;
+        lint.lintersByFt.python = [
+          "mypy"
+          "ruff"
+        ];
+        lsp.servers = {
+          pylsp = {
+            enable = true;
+            settings.plugins = {
+              jedi_completion.fuzzy = true;
+              black.enabled = true;
+              ruff.enabled = true;
+              pylsp_mypy = {
+                enabled = true;
+                dmypy = true;
+                report_progress = true;
+              };
+            };
+          };
+        };
       };
     };
   };
