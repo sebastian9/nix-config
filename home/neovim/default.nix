@@ -11,13 +11,14 @@
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
-    ./plugins/treesitter.nix
   ];
 
   programs.nixvim = {
     enable = true;
+
     viAlias = true;
     vimAlias = true;
+
     # colorscheme = "midnight";
     colorschemes.catppuccin = {
       enable = true;

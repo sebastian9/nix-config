@@ -29,6 +29,7 @@
 
   # Extra shell aliases for this machine/darwin
   programs.zsh = {
+    sessionVariables.EDITOR = "nvim";
     shellAliases = {
       firefox = "open -a Firefox";
       excel = "open -a 'Microsoft Excel'";

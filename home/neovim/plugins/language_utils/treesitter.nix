@@ -8,7 +8,6 @@
       nixvimInjections = true;
       # highlight.enable = true; # needed in unstable
       # autopairs = true; # not available yet
-      # auto_install = true;
       # TODO what is this?
       # incremental_selection = {
       #   enable = true;
@@ -77,6 +76,15 @@
 
     treesitter-context = {
       enable = true;
+      settings = {
+        max_lines = 2;
+        min_window_height = 0;
+        multiline_threshold = 20;
+        line_numbers = true;
+        trim_scope = "outer";
+        mode = "cursor";
+        zindex = 20;
+      };
     };
 
     # TODO does this replace mini.comment?
