@@ -13,7 +13,7 @@ _: {
         # file navigation and directory edits
         files = {};
         # quotes parens etc pairs
-        pairs = {};
+        # pairs = {};
         # sa + *motion* + *char* to surround words with *char*
         surround = {};
         # show and remove trailing spaces; highlighting doesn't work
