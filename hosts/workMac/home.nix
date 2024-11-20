@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  user,
-  host_alias,
-  ...
-}: {
+{host_alias, ...}: {
   imports = [
     ./packages.nix # standalone packages
 
@@ -16,7 +10,7 @@
     ../../home/tmux.nix
     ../../home/navi.nix
     ../../home/modern_unix.nix
-    ../../home/neovim
+    ../../home/nixvim
   ];
 
   home.sessionPath = [
@@ -27,23 +21,32 @@
     "/Users/slopezsanchez/.local/bin"
   ];
 
-  # Extra shell aliases for this machine/darwin
-  programs.zsh = {
-    sessionVariables.EDITOR = "nvim";
-    shellAliases = {
-      firefox = "open -a Firefox";
-      excel = "open -a 'Microsoft Excel'";
-      cdcode = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/\"";
-      cdspec = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/solarapp/spec\"";
-      cdebt = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
-      cd1 = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools/energy-business-tools\"";
-      update = ''
-        cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
-      '';
+  programs = {
+    neovim.enable = true;
+    nixvim = {
+      enable = false;
+      vscode = true;
+      # viAlias = true;
+      # vimAlias = true;
     };
-  };
+    # Extra shell aliases for this machine/darwin
+    zsh = {
+      sessionVariables.EDITOR = "vim";
+      shellAliases = {
+        firefox = "open -a Firefox";
+        excel = "open -a 'Microsoft Excel'";
+        cdcode = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/\"";
+        cdspec = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/solarapp/spec\"";
+        cdebt = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools\"";
+        cd1 = "cd \"/Users/slopezsanchez/OneDrive - Tesla/code/tesla/energy-business-tools/energy-business-tools\"";
+        update = ''
+          cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
+        '';
+      };
+    };
 
-  programs.kitty.font.size = 20;
+    kitty.font.size = 20;
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

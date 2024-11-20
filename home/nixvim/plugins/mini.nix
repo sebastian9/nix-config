@@ -1,8 +1,10 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim.plugins = {
     # bunch of classic libraries
     mini = {
-      enable = true;
+      enable = !cfg.vscode;
       modules = {
         # gc + *motion* to comment line
         comment = {};

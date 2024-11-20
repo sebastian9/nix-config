@@ -1,7 +1,9 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim.plugins = {
     none-ls = {
-      enable = true;
+      enable = !cfg.vscode;
       sources.formatting = {
         sqlformat.enable = true;
         stylua.enable = true;
@@ -14,7 +16,7 @@ _: {
     };
 
     conform-nvim = {
-      enable = true;
+      enable = !cfg.vscode;
 
       formatOnSave = {
         lspFallback = false;

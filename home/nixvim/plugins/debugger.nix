@@ -1,7 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim = {
     plugins.dap = {
-      enable = true;
+      enable = !cfg.vscode;
 
       signs = {
         dapBreakpoint = {
@@ -20,11 +27,11 @@
 
       extensions = {
         dap-python = {
-          enable = true;
+          enable = !cfg.vscode;
         };
 
         dap-ui = {
-          enable = true;
+          enable = !cfg.vscode;
 
           floating.mappings = {
             close = [
@@ -55,25 +62,13 @@
         };
 
         dap-virtual-text = {
-          enable = true;
+          enable = !cfg.vscode;
         };
-      };
-
-      configurations = {
-        # java = [
-        #   {
-        #     type = "java";
-        #     request = "launch";
-        #     name = "Debug (Attach) - Remote";
-        #     hostName = "127.0.0.1";
-        #     port = 5005;
-        #   }
-        # ];
       };
     };
 
     # Allow DAP UI to automatically open and close when possible
-    extraConfigLua = ''
+    extraConfigLua = lib.optionalString (!cfg.vscode) ''
       require('dap').listeners.after.event_initialized['dapui_config'] = require('dapui').open
       require('dap').listeners.before.event_terminated['dapui_config'] = require('dapui').close
       require('dap').listeners.before.event_exited['dapui_config'] = require('dapui').close

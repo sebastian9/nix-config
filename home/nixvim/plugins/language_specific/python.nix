@@ -1,4 +1,6 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   # Thanks Gaetan
   programs = {
     nixvim = {
@@ -14,7 +16,7 @@ _: {
         ];
         lsp.servers = {
           pylsp = {
-            enable = true;
+            enable = !cfg.vscode;
             settings.plugins = {
               jedi_completion.fuzzy = true;
               black.enabled = true;

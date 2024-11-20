@@ -1,7 +1,9 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim.plugins = {
     treesitter = {
-      enable = true;
+      enable = !cfg.vscode;
       indent = true;
       folding = false; # for now, needs plugin to tag along
       # highlight.enable = true; # needed in unstable
@@ -22,7 +24,7 @@ _: {
       };
     };
     treesitter-textobjects = {
-      enable = true;
+      enable = !cfg.vscode;
       # Define your own text objects mappings similar to `ip` (inner paragraph) and `ap`
       select = {
         enable = true;
@@ -75,13 +77,13 @@ _: {
 
     # Auto-close and auto-rename html tags
     ts-autotag = {
-      enable = true;
+      enable = !cfg.vscode;
     };
 
     # Show code context (function, class, list, etc)
     # on top of window
     treesitter-context = {
-      enable = true;
+      enable = !cfg.vscode;
       settings = {
         max_lines = 2;
         min_window_height = 0;
@@ -97,7 +99,7 @@ _: {
     # It does not add any mappings for commenting.
     # It does not replace mini.comment
     ts-context-commentstring = {
-      enable = true;
+      enable = !cfg.vscode;
       disableAutoInitialization = false;
     };
   };

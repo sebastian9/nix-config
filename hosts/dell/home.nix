@@ -1,13 +1,17 @@
-{
-  config,
-  pkgs,
-  user,
-  ...
-}: {
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
+{user, ...}: {
+  home = {
+    username = user;
+    homeDirectory = "/home/${user}";
+  };
 
-  programs.kitty.enable = true; # required for the default Hyprland config
+  programs = {
+    nixvim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+    kitty.enable = true; # required for the default Hyprland config
+  };
 
   imports = [
     ./packages.nix # standalone packages
@@ -22,7 +26,7 @@
     ../../home/tmux.nix
     ../../home/navi.nix
     ../../home/modern_unix.nix
-    ../../home/neovim
+    ../../home/nixvim
   ];
 
   # This value determines the home Manager release that your

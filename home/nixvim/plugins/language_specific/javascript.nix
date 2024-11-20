@@ -1,4 +1,6 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim.plugins = {
     none-ls.sources.formatting.prettier.disableTsServerFormatter = true;
 
@@ -8,7 +10,7 @@ _: {
       # TODO - solve error with ts-ls "does not exist"
       # ts-ls = {
       tsserver = {
-        enable = true;
+        enable = !cfg.vscode;
         filetypes = [
           "javascript"
           "javascriptreact"

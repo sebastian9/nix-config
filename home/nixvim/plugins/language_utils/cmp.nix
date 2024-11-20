@@ -1,7 +1,9 @@
-_: {
+{config, ...}: let
+  cfg = config.programs.nixvim;
+in {
   programs.nixvim.plugins = {
     cmp = {
-      enable = true;
+      enable = !cfg.vscode;
       settings = {
         autoEnableSources = true;
         performance = {
