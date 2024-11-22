@@ -19,6 +19,7 @@
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
       fvim = "nvim $(fzf)";
+      fenv = "printenv | fzf";
       falias = "alias | fzf";
       tma = "tmux a";
       lg = "lazygit";
