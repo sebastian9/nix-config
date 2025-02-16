@@ -1,10 +1,10 @@
 {pkgs, ...}: {
-  environment.systemPackages = [pkgs.nextcloud29];
+  environment.systemPackages = [pkgs.nextcloud30];
   environment.etc."nextcloud-admin-pass".text = "test_phrase";
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
     hostName = "cloud.home";
     configureRedis = true;
     config = {

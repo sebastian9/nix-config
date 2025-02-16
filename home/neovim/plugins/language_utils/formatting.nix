@@ -15,17 +15,18 @@ _: {
 
     conform-nvim = {
       enable = true;
+      settings = {
+        formatOnSave = {
+          lspFallback = false;
+          timeoutMs = 500;
+        };
 
-      formatOnSave = {
-        lspFallback = false;
-        timeoutMs = 500;
-      };
+        notifyOnError = true;
 
-      notifyOnError = true;
-
-      formattersByFt = {
-        lua = ["stylua"];
-        sql = ["sqlformat"];
+        formattersByFt = {
+          lua = ["stylua"];
+          sql = ["sqlformat"];
+        };
       };
     };
   };

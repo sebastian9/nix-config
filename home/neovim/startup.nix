@@ -2,9 +2,11 @@
   programs.nixvim = {
     plugins = {
       auto-session = {
-        enable = true;
-        autoSave.enabled = true;
-        autoRestore.enabled = true;
+        settings = {
+          enable = true;
+          autoSave = true;
+          autoRestore = true;
+        };
       };
 
       mini = {

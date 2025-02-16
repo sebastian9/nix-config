@@ -3,10 +3,11 @@ _: {
   programs = {
     nixvim = {
       plugins = {
-        conform-nvim.formattersByFt = {
-          python = [
-            "black"
-          ];
+        conform-nvim.settings = {
+          enable = true;
+          formattersByFt = {
+            python = ["black"];
+          };
         };
         lint.lintersByFt.python = [
           "mypy"
