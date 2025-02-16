@@ -5,9 +5,7 @@ _: {
     # Language
     lsp.servers = {
       eslint.enable = false; # causes dependency build error with vscodium
-      # TODO - solve error with ts-ls "does not exist"
-      # ts-ls = {
-      tsserver = {
+      ts_ls = {
         enable = true;
         filetypes = [
           "javascript"
