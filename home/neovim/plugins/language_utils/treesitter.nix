@@ -2,23 +2,14 @@ _: {
   programs.nixvim.plugins = {
     treesitter = {
       enable = true;
-      indent = true;
       folding = false; # for now, needs plugin to tag along
-      # highlight.enable = true; # needed in unstable
-      # autopairs = true; # not available yet
 
       # nixvim specific injections, like lua highlighting in extraConfigLua
       nixvimInjections = true;
 
-      # incremental selection based on the named nodes from the grammar
-      incrementalSelection = {
-        enable = true;
-        keymaps = {
-          initSelection = "gnn";
-          nodeIncremental = "grn";
-          scopeIncremental = "grc";
-          nodeDecremental = "grm";
-        };
+      settings = {
+        indent.enable = true;
+        highlight.enable = true;
       };
     };
     treesitter-textobjects = {

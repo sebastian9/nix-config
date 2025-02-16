@@ -16,19 +16,20 @@ _: {
 
     conform-nvim = {
       enable = true;
+      settings = {
+        formatOnSave = {
+          lspFallback = true;
+          timeoutMs = 500;
+        };
 
-      formatOnSave = {
-        lspFallback = true;
-        timeoutMs = 500;
-      };
+        notifyOnError = true;
 
-      notifyOnError = true;
-
-      formattersByFt = {
-        lua = ["stylua"];
-        yaml = ["yamlfmt"];
-        json = [["prettierd" "prettier"]];
-        sql = ["sqlformat"];
+        formattersByFt = {
+          lua = ["stylua"];
+          yaml = ["yamlfmt"];
+          json = [["prettierd" "prettier"]];
+          sql = ["sqlformat"];
+        };
       };
     };
   };

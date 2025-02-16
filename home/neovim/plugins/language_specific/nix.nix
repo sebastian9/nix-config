@@ -5,8 +5,11 @@ _: {
       formatting.alejandra.enable = true;
       diagnostics.statix.enable = true;
     };
-    conform-nvim.formattersByFt = {
-      nix = ["alejandra"];
+    conform-nvim.settings = {
+      enable = true;
+      formattersByFt = {
+        nix = ["alejandra"];
+      };
     };
 
     # Linting

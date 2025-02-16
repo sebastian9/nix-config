@@ -31,7 +31,6 @@
   environment.variables.XCURSOR_SIZE = 32;
   environment.variables.CONFIG_DIR = "/home/${user}/nixos-config/";
 
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
