@@ -9,6 +9,7 @@ _: {
           file_pattern = [
             ".env*"
             "fuze.env*"
+            "env.list"
           ];
           cloak_pattern = "=.+";
         }

@@ -3,7 +3,6 @@ _: {
     none-ls = {
       enable = true;
       sources.formatting = {
-        prettier.enable = true;
         sqlformat.enable = true;
         stylua.enable = true;
         yamlfmt.enable = true;
@@ -18,7 +17,7 @@ _: {
       enable = true;
       settings = {
         formatOnSave = {
-          lspFallback = true;
+          lspFallback = false;
           timeoutMs = 500;
         };
 
@@ -26,8 +25,6 @@ _: {
 
         formattersByFt = {
           lua = ["stylua"];
-          yaml = ["yamlfmt"];
-          json = [["prettierd" "prettier"]];
           sql = ["sqlformat"];
         };
       };
