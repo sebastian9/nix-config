@@ -12,20 +12,6 @@
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      # location, temp and network still showing and date missing
-      # {
-      #   plugin = dracula;
-      #   extraConfig = ''
-      #     set -g @dracula-refresh-rate 10
-      #     set -g @dracula-show-powerline true
-      #     set -g @dracula-show-left-icon session
-      #     set -g @dracula-show-battery true
-      #     set -g @dracula-cpu-display-load true
-      #     set -g @dracula-show-location false
-      #     set -g @dracula-show-fahrenheit false
-      #     set -g @dracula-network-bandwidth-show-interface false
-      #   '';
-      # }
       {
         plugin = catppuccin;
         extraConfig = ''
@@ -91,12 +77,12 @@
       set -g status-position top
 
       # Alt vim keys to switch windows
-      bind -n M-h previous-window
-      bind -n M-l next-window
+      bind -n M-p previous-window
+      bind -n M-n next-window
 
       # Alt vim keys to switch sessions
-      bind -n M-H switch-client -p
-      bind -n M-L switch-client -n
+      bind -n M-P switch-client -p
+      bind -n M-N switch-client -n
 
       # Vim style pane selection
       bind h select-pane -L

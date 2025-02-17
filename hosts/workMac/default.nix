@@ -8,6 +8,7 @@
 
   imports = [
     ../../common/fonts.nix
+    ../../common/aerospace.nix # window manager
   ];
 
   environment.variables.CONFIG_DIR = "/Users/${user}/.config/nix-config/";
