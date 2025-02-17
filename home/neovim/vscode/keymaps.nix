@@ -40,10 +40,10 @@ _: {
 
       # Clipboard
       {
-        key = "<leader>p";
+        key = "p";
         action = "\"_dP";
         mode = "v";
-        options.desc = "Paste and send to void register";
+        options.desc = "Paste and send to void register; conserving original yank";
       }
       {
         key = "<leader>y";
@@ -101,23 +101,48 @@ _: {
         options.desc = "Substitute selection";
       }
 
+      # Harpoon
+      {
+        key = "mj";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Set harpoon mark";
+      }
+      {
+        key = "<leader>m";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.editorQuickPick')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Show harpoon quick menu";
+      }
+      {
+        key = "<leader>M";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.editEditors')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Edit harpoon marks";
+      }{
+        key = "'j";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor1')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Go to harpoon mark 1";
+      }
+      {
+        key = "'k";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor2')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Go to harpoon mark 2";
+      }
+      {
+        key = "'l";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor3')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Go to harpoon mark 3";
+      }
+      {
+        key = "'m";
+        action = "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor4')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Go to harpoon mark 4";
+      }
     ];
-    plugins = {
-      # Live keymap cheatsheet
-      harpoon.keymaps = {
-        # m is the native set mark key
-        # ' is  the native mark motion
-        # j is the first mark
-        # h is too far away from '
-        addFile = "mj";
-        toggleQuickMenu = "<leader>me";
-        navFile = {
-          "1" = "'j";
-          "2" = "'k";
-          "3" = "'l";
-          "4" = "'m";
-        };
-      };
-    };
   };
 }

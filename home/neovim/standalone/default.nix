@@ -3,14 +3,14 @@
     ./keymaps.nix
     ./startup.nix
     ./options.nix
-    ../common/plugins/language_utils
-    ../common/plugins/language_specific
-    ../common/plugins/cloak.nix
-    ../common/plugins/debugger.nix
-    ../common/plugins/harpoon.nix
-    ../common/plugins/lualine.nix
-    ../common/plugins/mini.nix
-    ../common/plugins/telescope.nix
+    ./plugins/language_utils
+    ./plugins/language_specific
+    ./plugins/cloak.nix
+    ./plugins/debugger.nix
+    ./plugins/harpoon.nix
+    ./plugins/lualine.nix
+    ./plugins/mini.nix
+    ./plugins/telescope.nix
   ];
 
   programs.nixvim = {

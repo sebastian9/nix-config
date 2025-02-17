@@ -2,8 +2,6 @@
   imports = [
     ./keymaps.nix
     ./options.nix
-    ../common/plugins/cloak.nix
-    ../common/plugins/harpoon.nix
   ];
 
   programs.nixvim = {

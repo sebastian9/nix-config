@@ -34,6 +34,7 @@
       firefox = "open -a Firefox";
       excel = "open -a 'Microsoft Excel'";
       cdebt = "cd \"/Users/slopezsanchez/Documents/ebt/energy-business-tools\"";
+      code = "code .";
       update = ''
         cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
       '';
