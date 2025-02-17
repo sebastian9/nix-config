@@ -143,6 +143,26 @@ _: {
         mode = ["n" "v"];
         options.desc = "Go to harpoon mark 4";
       }
+      
+      # Project Manager
+      {
+        key = "<leader>pa";
+        action = "<cmd>lua require('vscode').action('projectManager.saveProject')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Save current project";
+      }
+      {
+        key = "<leader>po";
+        action = "<cmd>lua require('vscode').action('projectManager.listProjectsNewWindow')<CR>";
+        mode = ["n" "v"];
+        options.desc = "List projects in a new window";
+      }
+      {
+        key = "<leader>pe";
+        action = "<cmd>lua require('vscode').action('projectManager.editProjects')<CR>";
+        mode = ["n" "v"];
+        options.desc = "Edit projects";
+      }
     ];
   };
 }

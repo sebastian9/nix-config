@@ -3,6 +3,14 @@ _: {
   programs.nixvim = {
     globals.mapleader = " ";
     keymaps = [
+      # Insert mode
+      {
+        key = "jj";
+        action = "<Esc><cmd>write<CR>";
+        mode = "i";
+        options.desc = "Escape insert mode with jj and save";
+      }
+
       # Normal mode
       {
         key = "<leader>n";

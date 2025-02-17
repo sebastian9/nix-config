@@ -50,6 +50,19 @@
       plugins = ["git"];
       theme = "robbyrussell";
     };
+    
+    sessionVariables = {
+      # zsh-vi-mode escape key
+      ZVM_VI_INSERT_ESCAPE_BINDKEY = "jj";
+    };
+
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
     initExtra = ''
       # programs.zoxide init option wasn't working
