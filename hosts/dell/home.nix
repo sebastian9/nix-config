@@ -22,7 +22,7 @@
     ../../home/tmux.nix
     ../../home/navi.nix
     ../../home/modern_unix.nix
-    ../../home/neovim
+    ../../home/neovim/standalone
   ];
 
   # This value determines the home Manager release that your

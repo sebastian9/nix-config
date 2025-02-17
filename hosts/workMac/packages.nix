@@ -9,7 +9,6 @@
 in {
   home.packages = with pkgs;
     [
-      neovim
       neofetch # fancy system info
 
       p7zip # archives
