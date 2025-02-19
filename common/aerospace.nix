@@ -4,7 +4,7 @@
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.aerospace.enable
   # https://nikitabobko.github.io/AeroSpace/guide#default-config
   services.aerospace = {
-    enable = true;
+    enable = false;
     settings = {
       # TODO: AeroSpace started at login is managed by home-manager and launchd instead of itself via this option.
       # start-at-login = true;

@@ -24,20 +24,6 @@ _: {
         options.desc = "Move selection down";
       }
 
-      # View
-      {
-        key = "n";
-        action = "nzzzv";
-        mode = "n";
-        options.desc = "Non-disorienting next search match";
-      }
-      {
-        key = "N";
-        action = "Nzzzv";
-        mode = "n";
-        options.desc = "Non-disorienting next search match";
-      }
-
       # Clipboard
       {
         key = "p";
