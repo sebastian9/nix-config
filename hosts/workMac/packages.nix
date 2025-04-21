@@ -24,6 +24,7 @@ in {
       ipcalc # it is a calculator for the IPv4/v6 addresses
 
       # misc
+      git-extras
       file # file type guesser
       which
       tree
