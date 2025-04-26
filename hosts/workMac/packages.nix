@@ -25,6 +25,7 @@ in {
 
       # misc
       git-extras
+      parallel
       file # file type guesser
       which
       tree
