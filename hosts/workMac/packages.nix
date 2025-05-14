@@ -9,6 +9,7 @@
 in {
   home.packages = with pkgs;
     [
+      nushell
       neofetch # fancy system info
 
       p7zip # archives
@@ -26,6 +27,7 @@ in {
       # misc
       git-extras
       parallel
+      xsv
       file # file type guesser
       which
       tree
