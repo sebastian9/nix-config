@@ -44,6 +44,15 @@ in {
       btop # replacement of htop/nmon
 
       python3
+
+      # dotnet
+      (
+        with dotnetCorePackages;
+        combinePackages [
+          sdk_8_0
+          sdk_9_0
+        ]
+      )
     ]
     ++ unstable_packages;
 }
