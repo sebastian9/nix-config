@@ -111,6 +111,9 @@
           {nixpkgs.overlays = [(overlay-unstable systems.${name})];}
           inputs.home-manager.darwinModules.home-manager
           (home-manager-defaults userNames.${name} name)
+          {nixpkgs.config.permittedInsecurePackages = [
+            "dotnet-sdk-6.0.428"
+          ];}
         ];
       };
   in {

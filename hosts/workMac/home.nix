@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  user,
   host_alias,
   ...
 }: {
@@ -33,12 +31,20 @@
     shellAliases = {
       firefox = "open -a Firefox";
       excel = "open -a 'Microsoft Excel'";
-      cdebt = "cd \"/Users/slopezsanchez/Documents/ebt/energy-business-tools\"";
       code = "code .";
       update = ''
         cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
       '';
     };
+    initExtra = ''
+      # programs.zoxide init option wasn't working
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)";
+      source ~/teleport-ssh-config/teleport-functions;
+    '';
+  };
+
+  programs.tmux = {
+    shell = "/bin/zsh";
   };
 
   programs.kitty.font.size = 20;

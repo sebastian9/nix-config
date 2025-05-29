@@ -50,7 +50,7 @@
       plugins = ["git"];
       theme = "robbyrussell";
     };
-    
+
     sessionVariables = {
       # zsh-vi-mode escape key
       ZVM_VI_INSERT_ESCAPE_BINDKEY = "jj";

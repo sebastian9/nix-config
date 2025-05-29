@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{lib, pkgs, ...}: {
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -9,7 +9,7 @@
     shortcut = "a";
     resizeAmount = 20;
     terminal = "screen-256color";
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = lib.mkDefault "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       {
