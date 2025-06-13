@@ -1,7 +1,10 @@
-{
+{lib, ...}: {
   programs.git = {
     enable = true;
-    userName = "sebastian9";
-    userEmail = "sebastianls0228@gmail.com";
+    userName = lib.mkDefault "sebastian9";
+    userEmail = lib.mkDefault "sebastianls0228@gmail.com";
+    aliases = {
+      unstage = "reset HEAD --";
+    };
   };
 }

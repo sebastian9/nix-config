@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   host_alias,
   ...
 }: {
@@ -25,26 +26,36 @@
     "/Users/slopezsanchez/.local/bin"
   ];
 
-  # Extra shell aliases for this machine/darwin
-  programs.zsh = {
-    sessionVariables.EDITOR = "nvim";
-    shellAliases = {
-      firefox = "open -a Firefox";
-      excel = "open -a 'Microsoft Excel'";
-      code = "code .";
-      update = ''
-        cd $CONFIG_DIR && git add -A && darwin-rebuild switch --flake .#${host_alias} && cd -
+  programs = {
+    zsh = {
+      sessionVariables.EDITOR = "nvim";
+      # Extra shell aliases for this machine/darwin
+      shellAliases = {
+        firefox = "open -a Firefox";
+        excel = "open -a 'Microsoft Excel'";
+        code = "code .";
+        update = ''
+          cd $CONFIG_DIR && git add -A && sudo darwin-rebuild switch --flake .#${host_alias} && cd -
+        '';
+        install-nix-darwin = ''
+          sudo nix run nix-darwin/nix-darwin-24.11#darwin-rebuild -- switch; update
+        '';
+      };
+      initExtra = ''
+        # programs.zoxide init option wasn't working
+        eval "$(${pkgs.zoxide}/bin/zoxide init zsh)";
+        source ~/teleport-ssh-config/teleport-functions;
       '';
     };
-    initExtra = ''
-      # programs.zoxide init option wasn't working
-      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)";
-      source ~/teleport-ssh-config/teleport-functions;
-    '';
-  };
 
-  programs.tmux = {
-    shell = "/bin/zsh";
+    git = {
+      userName = lib.mkDefault "sebastian9";
+      userEmail = lib.mkDefault "sebastianls0228@gmail.com";
+    };
+
+    tmux = {
+      shell = "/etc/profiles/per-user/slopezsanchez/bin/zsh";
+    };
   };
 
   programs.kitty.font.size = 20;

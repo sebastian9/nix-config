@@ -111,9 +111,11 @@
           {nixpkgs.overlays = [(overlay-unstable systems.${name})];}
           inputs.home-manager.darwinModules.home-manager
           (home-manager-defaults userNames.${name} name)
-          {nixpkgs.config.permittedInsecurePackages = [
-            "dotnet-sdk-6.0.428"
-          ];}
+          {
+            nixpkgs.config.permittedInsecurePackages = [
+              "dotnet-sdk-6.0.428"
+            ];
+          }
         ];
       };
   in {
@@ -135,5 +137,10 @@
     apps = inputs.nixpkgs.lib.genAttrs supportedSystems (
       system: {default = inputs.lollypops.apps.${system}.default {configFlake = inputs.self;};}
     );
+
+    formatter = {
+      x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+      aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+    };
   };
 }

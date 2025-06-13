@@ -105,7 +105,8 @@ _: {
         action = "<cmd>lua require('vscode').action('vscode-harpoon.editEditors')<CR>";
         mode = ["n" "v"];
         options.desc = "Edit harpoon marks";
-      }{
+      }
+      {
         key = "'j";
         action = "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor1')<CR>";
         mode = ["n" "v"];
@@ -129,7 +130,7 @@ _: {
         mode = ["n" "v"];
         options.desc = "Go to harpoon mark 4";
       }
-      
+
       # Project Manager
       {
         key = "<leader>pa";
