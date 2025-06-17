@@ -59,6 +59,10 @@ in {
 
       # golang
       go
+
+      # node
+      nodejs_23
+      yarn
     ]
     ++ unstable_packages;
 }
