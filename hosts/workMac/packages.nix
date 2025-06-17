@@ -26,6 +26,8 @@ in {
 
       # misc
       gh
+      mysql-client # mysql cli client
+      flyway # db migrations
       parallel
       xsv
       file # file type guesser
