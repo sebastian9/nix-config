@@ -54,6 +54,9 @@ in {
             sdk_6_0
           ]
       )
+
+      # golang
+      go
     ]
     ++ unstable_packages;
 }
