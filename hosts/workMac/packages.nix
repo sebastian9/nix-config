@@ -59,6 +59,9 @@ in {
 
       # golang
       go
+      gotestsum
+      golangci-lint
+      golangci-lint-langserver
 
       # node
       nodejs_23
