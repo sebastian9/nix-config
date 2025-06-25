@@ -40,12 +40,7 @@
         install-nix-darwin = ''
           sudo nix run nix-darwin/nix-darwin-24.11#darwin-rebuild -- switch; update
         '';
-        gstr = "gh pr status";
-        gcop = "gh pr checkout";
         gapr = "gh pr create --web --fill --assignee slopezsanchez --base";
-        prw = "gh pr view --web";
-        prv = "gh pr view --comments";
-        gdp = "gh pr diff";
         jira = ''
           open -a Firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi 'RESI-\d+')";
         '';

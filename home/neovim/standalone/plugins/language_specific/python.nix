@@ -10,7 +10,7 @@ _: {
           };
         };
         lint.lintersByFt.python = [
-          "mypy"
+          # "mypy"
           "ruff"
         ];
         lsp.servers = {

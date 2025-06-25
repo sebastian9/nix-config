@@ -18,6 +18,13 @@
       wcl = "wc -l";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
+      gstr = "gh pr status";
+      gcop = "gh pr checkout";
+      prw = "gh pr view --web";
+      prv = "gh pr view --comments";
+      gdp = "gh pr diff";
+      gpr-search = "gh pr list --state ALL --search ";
+      git-pickaxe = "git log --all --pickaxe-all -S ";
       fvim = "nvim $(fzf)";
       fenv = "printenv | fzf";
       falias = "alias | fzf";
