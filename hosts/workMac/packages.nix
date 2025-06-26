@@ -60,6 +60,7 @@ in {
       # golang
       go
       gotestsum
+      golangci-lint
 
       # node
       nodejs_23

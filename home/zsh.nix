@@ -23,7 +23,7 @@
       prw = "gh pr view --web";
       prv = "gh pr view --comments";
       gdp = "gh pr diff";
-      gpr-search = "gh pr list --state ALL --search ";
+      pr-search = "gh pr list --state ALL --search ";
       git-pickaxe = "git log --all --pickaxe-all -S ";
       fvim = "nvim $(fzf)";
       fenv = "printenv | fzf";

@@ -21,7 +21,7 @@ _: {
               black.enabled = true;
               ruff.enabled = true;
               pylsp_mypy = {
-                enabled = true;
+                enabled = false;
                 dmypy = true;
                 report_progress = true;
               };

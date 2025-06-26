@@ -33,6 +33,11 @@
                 section = "";
               }
               {
+                name = "Live Grep";
+                action = "Telescope live_grep";
+                section = "";
+              }
+              {
                 name = "Quit";
                 action = "qa";
                 section = "";
