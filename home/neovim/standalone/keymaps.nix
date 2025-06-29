@@ -425,6 +425,7 @@ _: {
         "<leader>fk" = "keymaps";
         "<leader>fh" = "help_tags";
         "<leader>fs" = "lsp_dynamic_workspace_symbols";
+        "gD" = "lsp_references";
       };
       lsp.keymaps = {
         silent = false;
@@ -434,7 +435,6 @@ _: {
         };
         lspBuf = {
           "gd" = "definition";
-          "gD" = "references";
           "gt" = "type_definition";
           "gi" = "implementation";
           "K" = "hover";

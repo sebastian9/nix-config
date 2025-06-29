@@ -51,8 +51,8 @@ in {
       (
         with dotnetCorePackages;
           combinePackages [
-            sdk_8_0
             sdk_9_0
+            sdk_8_0
             sdk_6_0
           ]
       )
