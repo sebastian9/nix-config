@@ -34,6 +34,7 @@
 
     hostNames-darwin = {
       workMac = "LUSHQF0X7F3GW";
+      macAir = "Anas-MacBook-Air";
     };
 
     hostAliases-darwin = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames-darwin);
@@ -43,6 +44,7 @@
       nuc = "nuc";
       zima = "zima";
       workMac = "slopezsanchez";
+      macAir = "seb";
     };
 
     systems = {
@@ -50,6 +52,7 @@
       nuc = "x86_64-linux";
       zima = "x86_64-linux";
       workMac = "aarch64-darwin";
+      macAir = "aarch64-darwin";
     };
 
     supportedSystems = inputs.nixpkgs.lib.lists.unique (builtins.attrValues systems);
@@ -131,7 +134,7 @@
     );
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = inputs.self.darwinConfigurations."workMac".pkgs;
+    darwinPackages = inputs.self.darwinConfigurations."workMac".pkgs; # across all darwin configs
 
     # lollypops devops for remote deployment
     apps = inputs.nixpkgs.lib.genAttrs supportedSystems (
