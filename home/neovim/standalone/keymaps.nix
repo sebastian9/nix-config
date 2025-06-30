@@ -138,7 +138,7 @@ _: {
       {
         mode = "n";
         # Set highlight on search, but clear on pressing <C-c> in normal mode
-        key = "<C-c>";
+        key = "<Esc>";
         action = "<cmd>nohlsearch<CR>";
       }
 
@@ -155,6 +155,11 @@ _: {
         key = "<leader><Tab>";
         action = ":b#<CR>";
         options.desc = "Alternate buffer";
+      }
+      {
+        key = "<leader>bd";
+        action = ":bd";
+        options.desc = "Close Buffer";
       }
 
       # Remaps for dealing with word wrap and adding jumps to the jumplist.
@@ -404,34 +409,32 @@ _: {
       harpoon.keymaps = {
         # m is the native set mark key
         # ' is  the native mark motion
-        # j is the first mark
-        # h is too far away from '
-        addFile = "mj";
-        toggleQuickMenu = "<leader>me";
+        addFile = "ma";
+        toggleQuickMenu = "me";
         navFile = {
-          "1" = "'j";
-          "2" = "'k";
-          "3" = "'l";
-          "4" = "'m";
+          "1" = "'1";
+          "2" = "'2";
+          "3" = "'3";
+          "4" = "'4";
         };
       };
       telescope.keymaps = {
-        "<leader>/" = "live_grep";
+        "<leader>/" = "live_grep theme=dropdown";
         "<leader>ff" = "git_files";
         "<leader>fF" = "find_files";
-        "<leader>fb" = "buffers";
-        "<leader>bf" = "buffers";
+        "<leader>fr" = "oldfiles";
         "<leader>fc" = "commands";
         "<leader>fk" = "keymaps";
-        "<leader>fh" = "help_tags";
-        "<leader>fs" = "lsp_dynamic_workspace_symbols";
-        "gD" = "lsp_references";
+        "<leader>fh" = "help_tags theme=dropdown";
+        "<leader>fs" = "lsp_dynamic_workspace_symbols theme=dropdown";
+        "<leader>fS" = "lsp_document_symbols theme=dropdown";
+        "gD" = "lsp_references theme=dropdown";
       };
       lsp.keymaps = {
         silent = false;
         diagnostic = {
-          "<leader>[e" = "goto_prev";
-          "<leader>]e" = "goto_next";
+          "<leader>ep" = "goto_prev";
+          "<leader>en" = "goto_next";
         };
         lspBuf = {
           "gd" = "definition";
