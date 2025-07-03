@@ -56,10 +56,6 @@
       userName = lib.mkDefault "sebastian9";
       userEmail = lib.mkDefault "sebastianls0228@gmail.com";
     };
-
-    tmux = {
-      shell = "/etc/profiles/per-user/slopezsanchez/bin/zsh";
-    };
   };
 
   programs.kitty.font.size = 20;

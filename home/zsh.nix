@@ -16,6 +16,7 @@
       ll = "ls -l";
       cl = "clear";
       wcl = "wc -l";
+      hg = "history | grep";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
       gstr = "gh pr status";

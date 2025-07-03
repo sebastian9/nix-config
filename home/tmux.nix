@@ -13,7 +13,6 @@
     shortcut = "a";
     resizeAmount = 20;
     terminal = "screen-256color";
-    shell = lib.mkDefault "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       {
@@ -74,6 +73,10 @@
       }
     ];
     extraConfig = ''
+      # https://discourse.nixos.org/t/tmux-use-bash-instead-defined-zsh-in-home-manager/54763/5
+      # https://github.com/tmux-plugins/tmux-sensible/issues/74
+      set -g default-command ${pkgs.zsh}/bin/zsh
+
       # For neovim mouse support
       set -g focus-events on
 
