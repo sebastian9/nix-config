@@ -6,6 +6,7 @@ _: {
 
       # nixvim specific injections, like lua highlighting in extraConfigLua
       nixvimInjections = true;
+      nixGrammars = true;
 
       settings = {
         indent.enable = true;

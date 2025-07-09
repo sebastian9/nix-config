@@ -41,7 +41,12 @@ _: {
         mode = "n";
         options.desc = "Open project in vscode";
       }
-
+      {
+        key = "<leader>et";
+        action =  ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>";
+        mode = "n";
+        options.desc = "Toogle Diagnostics";
+      }
       # Editing
       {
         key = "J";

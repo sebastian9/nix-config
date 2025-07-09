@@ -5,6 +5,7 @@ _: {
     ./javascript.nix
     ./dotnet.nix
     ./golang.nix
+    ./lisp.nix
   ];
   programs.nixvim.plugins = {
     lsp = {

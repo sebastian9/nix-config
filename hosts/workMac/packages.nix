@@ -65,6 +65,10 @@ in {
       # node
       nodejs_23
       yarn
+
+      # lisp
+      clisp
+      # clasp-common-lisp # broken LLVM version
     ]
     ++ unstable_packages;
 }
