@@ -196,7 +196,7 @@ _: {
         key = "gD";
         action = "<cmd>Lspsaga finder ++normal<CR>";
         mode = "n";
-        options.desc = "Open float terminal";
+        options.desc = "Go to References";
       }
       {
         key = "<leader>!";
