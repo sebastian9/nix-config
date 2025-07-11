@@ -11,6 +11,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      v = "nvim";
       cd = "z";
       cat = "bat";
       ll = "ls -l";

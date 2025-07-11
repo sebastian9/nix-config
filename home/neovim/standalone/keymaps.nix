@@ -163,9 +163,72 @@ _: {
       }
       {
         key = "<leader>bd";
-        action = ":bd";
+        action = ":bd<CR>";
         options.desc = "Close Buffer";
       }
+
+      # LspSaga
+      {
+        key = "<leader>jv";
+        action = ":<cmd>Lspsaga outline<CR>";
+        mode = "n";
+        options.desc = "Jump to outline/variables";
+      }
+      {
+        key = "<leader>K";
+        action = "<cmd>Lspsaga hover_doc<CR>";
+        mode = "n";
+        options.desc = "Hover using LspSaga";
+      }
+      {
+        key = "<leader>mr";
+        action = "<cmd>Lspsaga lsp_rename ++project<CR>";
+        mode = "n";
+        options.desc = "Rename";
+      }
+      {
+        key = "gd";
+        action = "<cmd>Lspsaga goto_definition<CR>";
+        mode = "n";
+        options.desc = "Go to Definition";
+      }
+      {
+        key = "gD";
+        action = "<cmd>Lspsaga finder ++normal<CR>";
+        mode = "n";
+        options.desc = "Open float terminal";
+      }
+      {
+        key = "<leader>!";
+        action = "<cmd>Lspsaga term_toggle<CR>";
+        mode = "n";
+        options.desc = "Open float terminal";
+      }
+      {
+        key = "<leader>en";
+        action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
+        mode = "n";
+        options.desc = "Next diagnostic";
+      }
+      {
+        key = "[e";
+        action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
+        mode = "n";
+        options.desc = "Next diagnostic";
+      }
+      {
+        key = "<leader>ep";
+        action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
+        mode = "n";
+        options.desc = "Previous diagnostic";
+      }
+      {
+        key = "]e";
+        action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
+        mode = "n";
+        options.desc = "Previous diagnostic";
+      }
+
 
       # Remaps for dealing with word wrap and adding jumps to the jumplist.
       # TODO - understand this
@@ -433,20 +496,14 @@ _: {
         "<leader>fh" = "help_tags theme=dropdown";
         "<leader>fs" = "lsp_dynamic_workspace_symbols theme=dropdown";
         "<leader>fS" = "lsp_document_symbols theme=dropdown";
-        "gD" = "lsp_references theme=dropdown";
+        # "gD" = "lsp_references theme=dropdown";
       };
       lsp.keymaps = {
         silent = false;
-        diagnostic = {
-          "<leader>ep" = "goto_prev";
-          "<leader>en" = "goto_next";
-        };
         lspBuf = {
           "gd" = "definition";
           "gt" = "type_definition";
           "gi" = "implementation";
-          "K" = "hover";
-          "<leader>mr" = "rename"; # vspacecode
         };
       };
       cmp.settings.mapping = let

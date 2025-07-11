@@ -11,6 +11,8 @@
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
+    ./plugins/quick-math.nix
+    ./plugins/vim-be-good.nix
   ];
 
   programs.nixvim = {

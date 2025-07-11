@@ -1,13 +1,8 @@
 {lib, ...}: {
   programs.nixvim = {
     plugins = {
-      auto-session = {
-        settings = {
-          enable = true;
-          autoSave = true;
-          autoRestore = true;
-        };
-      };
+      auto-session.enable = true;
+      auto-save.enable = true;
 
       mini = {
         enable = true;
