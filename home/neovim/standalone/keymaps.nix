@@ -114,6 +114,14 @@ _: {
         '';
       }
       {
+        key = "<leader>by";
+        action = "<cmd>execute setreg('+',getreg('%'))<CR>";
+        mode = "n";
+        options.desc = ''
+          Set system register to the file path and name
+        '';
+      }
+      {
         key = "Y";
         action = "y$";
         mode = "n";
@@ -170,7 +178,7 @@ _: {
       # LspSaga
       {
         key = "<leader>jv";
-        action = ":<cmd>Lspsaga outline<CR>";
+        action = "<cmd>Lspsaga outline<CR>";
         mode = "n";
         options.desc = "Jump to outline/variables";
       }

@@ -5,7 +5,10 @@ _: {
     lspsaga = {
       enable = true;
       hover.openCmd = "!open -A firefox";
-      outline.winWidth = 50;
+      outline = {
+        # winWidth = 50;
+        autoClose = true;
+      };
     };
   };
 }
