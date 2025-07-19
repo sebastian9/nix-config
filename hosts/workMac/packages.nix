@@ -1,6 +1,5 @@
 # Packages that should be installed to the user profile.
 {
-  config,
   pkgs,
   ...
 }: let
@@ -38,6 +37,7 @@ in {
       gawk
       zstd # Zstandard real-time compression algorithm
       gnupg # GNU Privacy Guard
+      ammonite # Scala REPL - mostly used for FEEL
 
       nix-output-monitor # it provides the command `nom` works just like `nix` with more details log output
 
@@ -56,6 +56,7 @@ in {
             sdk_6_0
           ]
       )
+      mono
 
       # golang
       go

@@ -18,13 +18,21 @@
     ../../home/neovim/standalone
   ];
 
-  home.sessionPath = [
-    "$HOME/.pyenv/bin"
-    "$HOME/.nvm"
-    "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    "opt/homebrew/opt/openjdk/bin"
-    "/Users/slopezsanchez/.local/bin"
-  ];
+  home = {
+    sessionPath = [
+      "$HOME/.pyenv/bin"
+      "$HOME/.nvm"
+      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+      "opt/homebrew/opt/openjdk/bin"
+      "/Users/slopezsanchez/.local/bin"
+    ];
+    file.".config/feel/feel-repl.sc" = {
+      source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/camunda/feel-scala/master/feel-repl.sc";
+        sha256 = "sha256-rQL8JfNBCaNYOhqFGfGYKcwMsnspPY9MfM/tcJagkWk=";
+      };
+    };
+  };
 
   programs = {
     zsh = {
@@ -44,6 +52,7 @@
         jira = ''
           open -a Firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi 'RESI-\d+')";
         '';
+        feel = "amm --predef ~/.config/feel/feel-repl.sc";
       };
       initExtra = ''
         # programs.zoxide init option wasn't working
