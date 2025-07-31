@@ -1,7 +1,7 @@
 _: {
   programs.nixvim.plugins = {
     harpoon = {
-      enable = true;
+      enable = false;
       keymapsSilent = true;
     };
   };

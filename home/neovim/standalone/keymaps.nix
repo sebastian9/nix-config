@@ -482,18 +482,18 @@ _: {
     plugins = {
       # Live keymap cheatsheet
       which-key.enable = true; # TODO add groups per fred-drake's example
-      harpoon.keymaps = {
-        # m is the native set mark key
-        # ' is  the native mark motion
-        addFile = "ma";
-        toggleQuickMenu = "me";
-        navFile = {
-          "1" = "'1";
-          "2" = "'2";
-          "3" = "'3";
-          "4" = "'4";
-        };
-      };
+      # harpoon.keymaps = {
+      #   # m is the native set mark key
+      #   # ' is  the native mark motion
+      #   addFile = "ma";
+      #   toggleQuickMenu = "me";
+      #   navFile = {
+      #     "1" = "'1";
+      #     "2" = "'2";
+      #     "3" = "'3";
+      #     "4" = "'4";
+      #   };
+      # };
       telescope.keymaps = {
         "<leader>/" = "live_grep theme=dropdown";
         "<leader>ff" = "git_files";

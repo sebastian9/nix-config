@@ -28,6 +28,7 @@
       pr-search = "gh pr list --state ALL --search ";
       git-pickaxe = "git log --all --pickaxe-all -S ";
       fvim = "nvim $(fzf)";
+      fcamunda = "open -a \"Camunda Modeler\" $(fzf)";
       fenv = "printenv | fzf";
       falias = "alias | fzf";
       tma = "tmux a";
