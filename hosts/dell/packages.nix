@@ -32,7 +32,7 @@ in {
       gawk
 
       # apps
-      dolphin # KDE GUI file manager
+      kdePackages.dolphin # KDE GUI file manager
       photoqt # Image viewer
       vscode.fhs
 
