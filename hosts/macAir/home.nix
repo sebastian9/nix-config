@@ -2,6 +2,7 @@
   pkgs,
   lib,
   host_alias,
+  user,
   ...
 }: {
   imports = [
@@ -10,7 +11,6 @@
     # software configs
     ../../home/zsh.nix
     ../../home/git.nix
-    ../../home/vim.nix
     ../../home/kitty.nix
     ../../home/tmux.nix
     ../../home/navi.nix
@@ -29,6 +29,7 @@
   programs = {
     zsh = {
       sessionVariables.EDITOR = "nvim";
+      sessionVariables.CONFIG_DIR = "/Users/${user}/.config/nix-config/";
       # Extra shell aliases for this machine/darwin
       shellAliases = {
         firefox = "open -a Firefox";
@@ -40,7 +41,7 @@
           sudo nix run nix-darwin/nix-darwin-24.11#darwin-rebuild -- switch; update
         '';
       };
-      initExtra = ''
+      initContent = ''
         # programs.zoxide init option wasn't working
         eval "$(${pkgs.zoxide}/bin/zoxide init zsh)";
       '';

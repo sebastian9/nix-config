@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   fonts.packages = with pkgs; [
-    nerdfonts
     meslo-lgs-nf
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

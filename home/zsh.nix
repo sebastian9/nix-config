@@ -74,7 +74,7 @@
       }
     ];
 
-    initExtra = ''
+    initContent = ''
       # programs.zoxide init option wasn't working
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
     '';

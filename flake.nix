@@ -2,19 +2,19 @@
   description = "Seb's Nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     lollypops.url = "github:pinpox/lollypops";
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     compose2nix = {
@@ -64,20 +64,20 @@
       };
     };
 
-    home-manager-defaults = user: name: {
+    home-manager-defaults = user: hostName: {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
         users.${user} = {
           imports = [
-            ./hosts/${name}/home.nix
+            ./hosts/${hostName}/home.nix
             inputs.nixvim.homeManagerModules.nixvim
           ];
         };
         backupFileExtension = "backup";
         extraSpecialArgs = {
           inherit user;
-          host_alias = name; # name is a reserved keyword
+          host_alias = hostName;
         };
       };
     };
@@ -127,7 +127,6 @@
         mkConfig "${host}"
     );
 
-    # $ darwin-rebuild build --flake .#LUSHQF0X7F3GW
     darwinConfigurations = inputs.nixpkgs.lib.genAttrs hostAliases-darwin (
       host:
         mkConfig-darwin "${host}"

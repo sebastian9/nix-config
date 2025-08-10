@@ -16,7 +16,6 @@
     # software configs
     ../../home/zsh.nix
     ../../home/git.nix
-    ../../home/vim.nix
     ../../home/vscode.nix
     ../../home/kitty.nix
     ../../home/tmux.nix

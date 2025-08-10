@@ -3,13 +3,13 @@
   pkgs,
   ...
 }: let
-  unstable_packages = with pkgs.unstable; [
-  ];
+  unstable_packages = [];
 in {
   home.packages = with pkgs;
     [
       nushell
       neofetch # fancy system info
+      kitty
 
       p7zip # archives
 
@@ -28,7 +28,7 @@ in {
       mysql-client # mysql cli client
       flyway # db migrations
       parallel
-      xsv
+      xan # csv handling
       file # file type guesser
       which
       tree
@@ -64,7 +64,7 @@ in {
       golangci-lint
 
       # node
-      nodejs_23
+      nodejs_24
       yarn
 
       # lisp

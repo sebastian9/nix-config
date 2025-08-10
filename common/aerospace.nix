@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+# Window Manager for MacOS
+{
   # https://github.com/LnL7/nix-darwin/blob/nix-darwin-24.11/modules/services/aerospace/default.nix
   # From 25.05, it's available in home-manager.
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.aerospace.enable

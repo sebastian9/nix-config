@@ -7,7 +7,6 @@
     ./plugins/language_specific
     ./plugins/cloak.nix
     ./plugins/debugger.nix
-    ./plugins/harpoon.nix
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
@@ -39,8 +38,6 @@
       todo-comments.enable = true;
       # Lazy loading of plugins
       lazy.enable = true;
-      # Telescope & Harpoon
-      harpoon.enableTelescope = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
