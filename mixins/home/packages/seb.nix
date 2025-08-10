@@ -56,7 +56,6 @@ in {
             sdk_6_0
           ]
       )
-      mono
 
       # golang
       go
@@ -69,7 +68,7 @@ in {
 
       # lisp
       clisp
-      # clasp-common-lisp # broken LLVM version
+      # clasp-common-lisp # not available in arm64
     ]
     ++ unstable_packages;
 }

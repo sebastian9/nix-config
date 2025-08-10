@@ -17,6 +17,7 @@
       ll = "ls -l";
       cl = "clear";
       wcl = "wc -l";
+      code = "code .";
       hg = "history | grep";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
@@ -25,6 +26,7 @@
       prw = "gh pr view --web";
       prv = "gh pr view --comments";
       gdp = "gh pr diff";
+      gapr = "gh pr create --web --fill --assignee $GITHUB_USER --base";
       pr-search = "gh pr list --state ALL --search ";
       git-pickaxe = "git log --all --pickaxe-all -S ";
       fvim = "nvim $(fzf)";
@@ -48,6 +50,10 @@
         sudo mount /dev/sda /mnt/usb &&
         sudo rsync -av --i-r --progress --no-owner --no-group /mnt/synology/ /mnt/usb/backup
       '';
+      jira = ''
+        firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi 'RESI-\d+')";
+      '';
+      feel = "amm --predef ~/.config/feel/feel-repl.sc";
     };
 
     history = {
@@ -62,8 +68,8 @@
     };
 
     sessionVariables = {
-      # zsh-vi-mode escape key
-      ZVM_VI_INSERT_ESCAPE_BINDKEY = "jj";
+      EDITOR = "nvim";
+      ZVM_VI_INSERT_ESCAPE_BINDKEY = "jj"; # zsh-vi-mode escape key
     };
 
     plugins = [
