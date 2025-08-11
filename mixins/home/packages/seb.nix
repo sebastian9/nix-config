@@ -46,6 +46,8 @@ in {
       btop # replacement of htop/nmon
 
       python3
+      poetry
+      pyenv
 
       # dotnet
       (

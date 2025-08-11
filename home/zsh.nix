@@ -17,7 +17,6 @@
       ll = "ls -l";
       cl = "clear";
       wcl = "wc -l";
-      code = "code .";
       hg = "history | grep";
       gdl = "git diff HEAD^ HEAD";
       gci = "git commit --interactive";
@@ -54,6 +53,7 @@
         firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi 'RESI-\d+')";
       '';
       feel = "amm --predef ~/.config/feel/feel-repl.sc";
+      poetry-shell = "eval \"$(poetry env activate)\"";
     };
 
     history = {
