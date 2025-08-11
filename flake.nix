@@ -28,6 +28,7 @@
       dell = "dell";
       nuc = "nuc";
       zima = "zima";
+      workWsl = "DUS-MXL3324Q2P";
     };
 
     hostAliases = inputs.nixpkgs.lib.lists.unique (builtins.attrNames hostNames);
@@ -44,6 +45,7 @@
       nuc = "nuc";
       zima = "zima";
       workMac = "slopezsanchez";
+      workWsl = "slopezsanchez";
       macAir = "seb";
     };
 
@@ -51,6 +53,7 @@
       dell = "x86_64-linux";
       nuc = "x86_64-linux";
       zima = "x86_64-linux";
+      workWsl = "x86_64-linux";
       workMac = "aarch64-darwin";
       macAir = "aarch64-darwin";
     };
@@ -64,6 +67,7 @@
       };
     };
 
+    # As a module in system configurations - eg nix-darwin
     home-manager-defaults = user: hostName: {
       home-manager = {
         useGlobalPkgs = true;
@@ -72,6 +76,7 @@
           imports = [
             ./hosts/${hostName}/home.nix
             inputs.nixvim.homeManagerModules.nixvim
+            { home.username = user; }
           ];
         };
         backupFileExtension = "backup";
@@ -81,6 +86,26 @@
         };
       };
     };
+
+    # As a standalone config - eg ubuntu windows subsystem for linux
+    mkConfig-homeManager = system: host: user:
+      inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
+        modules = [
+          ./hosts/${host}/home.nix
+          inputs.nixvim.homeManagerModules.nixvim
+          { home.username = user; }
+          {
+            nixpkgs.config.permittedInsecurePackages = [
+              "dotnet-sdk-6.0.428"
+            ];
+          }
+        ];
+        extraSpecialArgs = {
+          inherit user;
+          host_alias = host;
+        };
+      };
 
     mkConfig = name:
       inputs.nixpkgs.lib.nixosSystem {
@@ -121,22 +146,28 @@
           }
         ];
       };
+
+    inherit (inputs.nixpkgs) lib;
   in {
-    nixosConfigurations = inputs.nixpkgs.lib.genAttrs hostAliases (
+    nixosConfigurations = lib.genAttrs hostAliases (
       host:
         mkConfig "${host}"
     );
 
-    darwinConfigurations = inputs.nixpkgs.lib.genAttrs hostAliases-darwin (
+    darwinConfigurations = lib.genAttrs hostAliases-darwin (
       host:
         mkConfig-darwin "${host}"
+    );
+
+    homeConfigurations = lib.genAttrs (hostAliases ++ hostAliases-darwin) (
+      host: mkConfig-homeManager "${systems.${host}}" "${host}" "${userNames.${host}}"
     );
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = inputs.self.darwinConfigurations."workMac".pkgs; # across all darwin configs
 
     # lollypops devops for remote deployment
-    apps = inputs.nixpkgs.lib.genAttrs supportedSystems (
+    apps = lib.genAttrs supportedSystems (
       system: {default = inputs.lollypops.apps.${system}.default {configFlake = inputs.self;};}
     );
 

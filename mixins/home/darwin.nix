@@ -1,12 +1,11 @@
 
 {
-  pkgs,
-  lib,
   user,
   host_alias,
   ...
 }: {
   home = {
+    homeDirectory = "/Users/${user}";
     sessionPath = [
       "$HOME/.pyenv/bin"
       "$HOME/.nvm"
