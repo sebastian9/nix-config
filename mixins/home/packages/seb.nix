@@ -5,6 +5,11 @@
 }: let
   unstable_packages = [];
 in {
+
+  imports = [
+    ../../../home/modern_unix.nix
+  ];
+
   home.packages = with pkgs;
     [
       nushell
@@ -44,6 +49,8 @@ in {
       # productivity
       glow # markdown previewer in terminal
       btop # replacement of htop/nmon
+
+      git-lfs
 
       python3
       poetry

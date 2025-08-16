@@ -43,11 +43,4 @@
       # command line file manager
       lf
     ]);
-  # Configurations
-  programs = {
-    git.delta = {
-      enable = true;
-    };
-    broot.settings.modal = true;
-  };
 }

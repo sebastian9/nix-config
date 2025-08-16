@@ -28,7 +28,9 @@
       gapr = "gh pr create --web --fill --assignee $GITHUB_USER --base";
       pr-search = "gh pr list --state ALL --search ";
       git-pickaxe = "git log --all --pickaxe-all -S ";
+      fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
       fvim = "nvim $(fzf)";
+      fblame = "git blame $(fzf)";
       fcamunda = "open -a \"Camunda Modeler\" $(fzf)";
       fenv = "printenv | fzf";
       falias = "alias | fzf";
