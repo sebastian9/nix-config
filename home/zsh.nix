@@ -56,6 +56,11 @@
       '';
       feel = "amm --predef ~/.config/feel/feel-repl.sc";
       poetry-shell = "eval \"$(poetry env activate)\"";
+      dformat = "git diff --staged --name-only | xargs dotnet format --include";
+    };
+
+    siteFunctions = {
+      cloneDigitalExperience = ''gh repo clone "digital-experience/$1"'';
     };
 
     history = {
