@@ -10,8 +10,9 @@
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
-    ./plugins/quick-math.nix
+    ./plugins/quickmath.nix
     ./plugins/vim-be-good.nix
+    ./plugins/project-nvim.nix
   ];
 
   programs.nixvim = {

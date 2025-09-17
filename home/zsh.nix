@@ -59,10 +59,6 @@
       dformat = "git diff --staged --name-only | xargs dotnet format --include";
     };
 
-    siteFunctions = {
-      cloneDigitalExperience = ''gh repo clone "digital-experience/$1"'';
-    };
-
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
@@ -90,6 +86,11 @@
     initContent = ''
       # programs.zoxide init option wasn't working
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+
+      # TODO - move to siteFunctions once home manager is upgraded
+      function digitalExperience-Clone  {
+        gh repo clone "digital-experience/$1";
+      }
     '';
   };
 }

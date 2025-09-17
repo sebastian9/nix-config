@@ -492,6 +492,7 @@ _: {
         "<leader>fh" = "help_tags theme=dropdown";
         "<leader>fs" = "lsp_dynamic_workspace_symbols theme=dropdown";
         "<leader>fS" = "lsp_document_symbols theme=dropdown";
+        "<leader>fp" = "projects";
         # "gD" = "lsp_references theme=dropdown";
       };
       lsp.keymaps = {
