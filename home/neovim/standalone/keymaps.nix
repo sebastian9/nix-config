@@ -26,22 +26,6 @@ _: {
         mode = "n";
       }
       {
-        key = "<leader><M-c>";
-        action = ''
-          :exe "!code " .. shellescape(expand("%"))<CR>
-        '';
-        mode = "n";
-        options.desc = "Open file in vscode";
-      }
-      {
-        key = "<leader><M-C>";
-        action = ''
-          :exe "!code " .. shellescape(expand(getcwd()))<CR>
-        '';
-        mode = "n";
-        options.desc = "Open project in vscode";
-      }
-      {
         key = "<leader>et";
         action =  ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>";
         mode = "n";

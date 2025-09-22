@@ -13,6 +13,8 @@
     ./plugins/quickmath.nix
     ./plugins/vim-be-good.nix
     ./plugins/project-nvim.nix
+    ./plugins/gitblame.nix
+    ./plugins/copilot.nix
   ];
 
   programs.nixvim = {
