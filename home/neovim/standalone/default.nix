@@ -15,6 +15,7 @@
     ./plugins/project-nvim.nix
     ./plugins/gitblame.nix
     ./plugins/copilot.nix
+    ./plugins/easy-dotnet.nix
   ];
 
   programs.nixvim = {
