@@ -9,11 +9,11 @@ _: {
         };
         sources = [
           { name = "path"; }
+          { name = "copilot"; }
           {
             name = "nvim_lsp";
             keywordLength = 1;
           }
-          { name = "copilot"; }
           {
             name = "buffer";
             keywordLength = 3;
