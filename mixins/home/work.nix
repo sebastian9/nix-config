@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }: {
   home = {
@@ -11,6 +12,10 @@
     };
   };
   programs = {
+    git = {
+      userName = "slopezsanchez";
+      userEmail = "slopezsanchez@tesla.com";
+    };
     zsh = {
       sessionVariables = {
         GITHUB_USER = "slopezsanchez";
