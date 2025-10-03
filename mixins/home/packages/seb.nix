@@ -53,6 +53,7 @@ in {
       git-lfs
 
       python3
+      pipx
       poetry
       pyenv
 
