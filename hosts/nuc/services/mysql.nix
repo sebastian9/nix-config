@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ user, pkgs, ...}: {
   environment.systemPackages = [pkgs.mariadb];
 
   services = {
@@ -11,7 +11,7 @@
       ];
       ensureUsers = [
         {
-          name = "nuc";
+          name = user;
           ensurePermissions = {
             "nextcloud.*" = "SELECT";
             "photoprism.*" = "SELECT";
