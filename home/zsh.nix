@@ -15,16 +15,16 @@
       cd = "z";
       cat = "bat";
       ll = "ls -l";
+      lgrep = "ls -l | grep ";
+      hgrep = "history | grep";
       cl = "clear";
       wcl = "wc -l";
-      hg = "history | grep";
       gdl = "git diff HEAD^ HEAD";
+      gdll = "git diff HEAD^^ HEAD^";
       gci = "git commit --interactive";
-      gstr = "gh pr status";
-      gcop = "gh pr checkout";
+      repo = "gh repo view --web";
       prw = "gh pr view --web";
       prv = "gh pr view --comments";
-      gdp = "gh pr diff";
       gapr = "gh pr create --web --fill --assignee $GITHUB_USER --base";
       pr-search = "gh pr list --state ALL --search ";
       git-pickaxe = "git log --all --pickaxe-all -S ";
@@ -52,7 +52,7 @@
         sudo rsync -av --i-r --progress --no-owner --no-group /mnt/synology/ /mnt/usb/backup
       '';
       jira = ''
-        firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi 'RESI-\d+')";
+        firefox "https://issues.teslamotors.com/browse/$(git_current_branch | grep -Eoi '\W{4}-\d+')";
       '';
       feel = "amm --predef ~/.config/feel/feel-repl.sc";
       poetry-shell = "eval \"$(poetry env activate)\"";
