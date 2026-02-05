@@ -57,6 +57,7 @@
       feel = "amm --predef ~/.config/feel/feel-repl.sc";
       poetry-shell = "eval \"$(poetry env activate)\"";
       dformat = "git diff --staged --name-only | xargs dotnet format --include";
+      source-claude-env = "source ~/.env.claude";
     };
 
     history = {
@@ -86,6 +87,7 @@
     initContent = ''
       # programs.zoxide init option wasn't working
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+      source $HOME/.env.claude
 
       # TODO - move to siteFunctions once home manager is upgraded
       function digitalExperience-Clone  {
