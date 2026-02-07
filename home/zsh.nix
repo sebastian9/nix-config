@@ -12,6 +12,7 @@
 
     shellAliases = {
       v = "nvim";
+      c = "claude";
       cd = "z";
       cat = "bat";
       ll = "ls -l";
