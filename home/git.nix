@@ -7,6 +7,15 @@
     aliases = {
       unstage = "reset HEAD --";
     };
+    ignores = [
+      "*~"
+      ".claude"
+      ".DS_Store"
+      "CLAUDE.md"
+      ".vscode/"
+      ".idea/"
+      "secrets.json"
+    ];
     delta = {
       enable = true;
       options = {
