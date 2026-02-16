@@ -5,4 +5,7 @@
     ../../mixins/home/work.nix
     ../../mixins/home/packages/seb.nix
   ];
+  home = {
+    homeDirectory = "/home/sebastian";
+  };
 }

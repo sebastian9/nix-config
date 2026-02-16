@@ -45,7 +45,7 @@
       nuc = "nuc";
       zima = "zima";
       workMac = "slopezsanchez";
-      workWsl = "slopezsanchez";
+      workWsl = "sebastian";
       macAir = "seb";
     };
 
