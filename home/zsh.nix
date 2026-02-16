@@ -58,6 +58,7 @@
       poetry-shell = "eval \"$(poetry env activate)\"";
       dformat = "git diff --staged --name-only | xargs dotnet format --include";
       source-claude-env = "source ~/.env.claude";
+      hash-file-nix = "nix-hash --type sha256 --flat --sri ";
     };
 
     history = {

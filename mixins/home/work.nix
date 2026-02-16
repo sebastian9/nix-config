@@ -6,7 +6,7 @@
   home = {
     file.".config/feel/feel-repl.sc" = {
       source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/camunda/feel-scala/master/feel-repl.sc";
+        url = "https://raw.githubusercontent.com/camunda/feel-scala/refs/tags/1.20.0/feel-repl.sc";
         sha256 = "sha256-rQL8JfNBCaNYOhqFGfGYKcwMsnspPY9MfM/tcJagkWk=";
       };
     };
