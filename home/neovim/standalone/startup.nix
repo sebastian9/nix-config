@@ -18,13 +18,13 @@
             ];
             items = [
               {
-                name = "Live Grep";
-                action = "Telescope live_grep";
+                name = "Find File";
+                action = "Telescope find_files follow=true no_ignore=true hidden=true";
                 section = "";
               }
               {
-                name = "Find File";
-                action = "Telescope find_files follow=true no_ignore=true hidden=true";
+                name = "Live Grep";
+                action = "Telescope live_grep";
                 section = "";
               }
               {

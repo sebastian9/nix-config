@@ -6,13 +6,13 @@
     ./plugins/language_utils
     ./plugins/language_specific
     ./plugins/cloak.nix
-    ./plugins/debugger.nix
+    # ./plugins/debugger.nix
     ./plugins/lualine.nix
     ./plugins/mini.nix
     ./plugins/telescope.nix
     ./plugins/quickmath.nix
     ./plugins/vim-be-good.nix
-    ./plugins/project-nvim.nix
+    # ./plugins/project-nvim.nix
     ./plugins/gitblame.nix
     ./plugins/copilot.nix
     ./plugins/easy-dotnet.nix

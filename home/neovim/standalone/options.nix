@@ -16,8 +16,8 @@ _: {
     autoindent = true;
     smartindent = true;
     expandtab = true;
-    tabstop = 4;
-    softtabstop = 4;
+    tabstop = 2;
+    softtabstop = 2;
 
     # Minimum number of lines visible when scrolling up/down
     scrolloff = 8;
