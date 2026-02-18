@@ -60,6 +60,7 @@
       }
       # Keep this two at the end to avoid issues
       # Saves sessions as if you never left
+      # To clean session cache `rm ~/.tmux/resurrect/*`
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
