@@ -2,7 +2,7 @@
   host,
   user,
   ...
-} : {
+}: {
   lollypops.deployment = {
     # Where on the remote the configuration (system flake) is placed
     config-dir = "~/nixos-config/";

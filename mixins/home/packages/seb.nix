@@ -1,11 +1,7 @@
 # Packages that should be installed to the user profile.
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   unstable_packages = [];
 in {
-
   imports = [
     ../../../home/modern_unix.nix
   ];

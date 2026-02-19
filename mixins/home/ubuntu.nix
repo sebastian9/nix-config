@@ -1,7 +1,4 @@
-{
-  user,
-  ...
-}: {
+{user, ...}: {
   home = {
     sessionPath = [
       "$HOME/.pyenv/bin"

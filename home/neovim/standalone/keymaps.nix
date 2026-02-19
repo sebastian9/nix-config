@@ -27,7 +27,7 @@ _: {
       }
       {
         key = "<leader>et";
-        action =  ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>";
+        action = ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>";
         mode = "n";
         options.desc = "Toogle Diagnostics";
       }
@@ -220,7 +220,6 @@ _: {
         mode = "n";
         options.desc = "Previous diagnostic";
       }
-
 
       # Remaps for dealing with word wrap and adding jumps to the jumplist.
       # TODO - understand this

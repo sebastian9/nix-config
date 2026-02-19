@@ -8,8 +8,8 @@ _: {
           debounce = 150;
         };
         sources = [
-          { name = "path"; }
-          { name = "copilot"; }
+          {name = "path";}
+          {name = "copilot";}
           {
             name = "nvim_lsp";
             keywordLength = 1;

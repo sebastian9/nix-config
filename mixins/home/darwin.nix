@@ -1,4 +1,3 @@
-
 {
   user,
   host_alias,
@@ -32,7 +31,6 @@
         '';
       };
     };
-
   };
 
   programs.kitty.font.size = 20;

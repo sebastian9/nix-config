@@ -1,11 +1,9 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     # software configs
     ../../home/zsh.nix
     ../../home/git.nix
+    ../../home/claude.nix
     ../../home/kitty.nix
     ../../home/tmux.nix
     ../../home/navi.nix

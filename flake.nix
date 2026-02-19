@@ -76,7 +76,7 @@
           imports = [
             ./hosts/${hostName}/home.nix
             inputs.nixvim.homeManagerModules.nixvim
-            { home.username = user; }
+            {home.username = user;}
           ];
         };
         backupFileExtension = "backup";
@@ -94,7 +94,7 @@
         modules = [
           ./hosts/${host}/home.nix
           inputs.nixvim.homeManagerModules.nixvim
-          { home.username = user; }
+          {home.username = user;}
           {
             nixpkgs.config.permittedInsecurePackages = [
               "dotnet-sdk-6.0.428"

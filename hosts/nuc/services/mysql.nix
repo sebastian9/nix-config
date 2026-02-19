@@ -1,4 +1,8 @@
-{ user, pkgs, ...}: {
+{
+  user,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = [pkgs.mariadb];
 
   services = {
