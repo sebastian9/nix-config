@@ -66,6 +66,8 @@ in {
             sdk_6_0
           ]
       )
+      csharprepl
+      csharpier # C# code formatter
 
       # golang
       go
