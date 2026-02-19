@@ -4,6 +4,13 @@ input=$(cat)
 MODEL=$(echo "$input" | jq -r '.model.display_name')
 DIR=$(echo "$input" | jq -r '.workspace.current_dir')
 PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
+TRANSCRIPT=$(echo "$input" | jq -r '.transcript_path // empty')
+
+# Look up session name from transcript (set via /rename)
+SESSION=""
+if [ -n "$TRANSCRIPT" ] && [ -f "$TRANSCRIPT" ]; then
+    SESSION=$(grep -o '"type":"custom-title","customTitle":"[^"]*"' "$TRANSCRIPT" | tail -1 | sed 's/.*"customTitle":"\([^"]*\)"/\1/')
+fi
 
 CYAN='\033[36m'; GREEN='\033[32m'; YELLOW='\033[33m'; RED='\033[31m'; RESET='\033[0m'
 
@@ -24,7 +31,7 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
         REPO_NAME=$(basename "$REMOTE")
         # OSC 8 format: \e]8;;URL\a then TEXT then \e]8;;\a
         # printf %b interprets escape sequences reliably across shells
-        REPO_NAME=" 🔗 ${CYAN}\e]8;;${REMOTE}\a${REPO_NAME}\e]8;;\a${RESET} "
+        REPO_NAME="🔗 ${CYAN}\e]8;;${REMOTE}\a${REPO_NAME}\e]8;;\a${RESET} "
     else
         REPO_NAME=""
     fi
@@ -33,7 +40,7 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
     [ "$STAGED" -gt 0 ] && GIT_STATUS="${GREEN}+${STAGED}${RESET}"
     [ "$MODIFIED" -gt 0 ] && GIT_STATUS="${GIT_STATUS}${YELLOW}~${MODIFIED}${RESET}"
 
-    printf '%b' "[$MODEL] $PCT_COLOR$PCT%${RESET} |${REPO_NAME}🌿 $BRANCH $GIT_STATUS\n"
+    printf '%b' "[$MODEL] $PCT_COLOR$PCT%${RESET} | ${SESSION:+$SESSION | }${REPO_NAME}🌿 $BRANCH $GIT_STATUS\n"
 else
-    printf '%b' "[$MODEL] $PCT_COLOR$PCT%${RESET} | 📁 ${DIR##*/}"
+    printf '%b' "[$MODEL] $PCT_COLOR$PCT%${RESET} | ${SESSION:+$SESSION | }📁 ${DIR##*/}"
 fi
