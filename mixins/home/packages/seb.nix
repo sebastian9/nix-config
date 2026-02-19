@@ -26,7 +26,7 @@ in {
 
       # misc
       gh
-      mysql-client # mysql cli client
+      mariadb.client # mysql cli client
       flyway # db migrations
       parallel
       xan # csv handling
