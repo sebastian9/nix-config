@@ -47,6 +47,7 @@ in {
       btop # replacement of htop/nmon
 
       git-lfs
+      git-filter-repo
 
       python3
       pipx
