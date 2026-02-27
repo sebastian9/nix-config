@@ -18,6 +18,7 @@
       ll = "ls -l";
       lgrep = "ls -l | grep ";
       hgrep = "history | grep";
+      lless = "ls -l | less";
       cl = "clear";
       wcl = "wc -l";
       gdl = "git diff HEAD^ HEAD";
